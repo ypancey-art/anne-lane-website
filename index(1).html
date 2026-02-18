@@ -1,0 +1,1392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Anne Lane | Naturopathic Practitioner</title>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --cream: #f9f5ef;
+      --cream-dark: #f0e9dc;
+      --green: #4a6741;
+      --green-light: #7a9e72;
+      --green-pale: #d6e5d0;
+      --gold: #b8913a;
+      --gold-light: #d4ad5c;
+      --gold-pale: #f5e9d0;
+      --brown: #6b4f3a;
+      --text: #3a3028;
+      --text-light: #6b5f55;
+      --white: #ffffff;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'Jost', sans-serif;
+      background: var(--cream);
+      color: var(--text);
+      font-weight: 300;
+    }
+
+    h1, h2, h3, h4 {
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 400;
+    }
+
+    /* NAV */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1.2rem 4rem;
+      background: rgba(249, 245, 239, 0.95);
+      backdrop-filter: blur(8px);
+      border-bottom: 1px solid rgba(184, 145, 58, 0.15);
+      transition: box-shadow 0.3s;
+    }
+
+    .nav-logo {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.4rem;
+      font-weight: 500;
+      color: var(--green);
+      letter-spacing: 0.04em;
+      cursor: pointer;
+    }
+
+    .nav-logo span {
+      color: var(--gold);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2.5rem;
+      list-style: none;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: var(--text-light);
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      font-weight: 400;
+      transition: color 0.3s;
+    }
+
+    .nav-links a:hover, .nav-links a.active {
+      color: var(--gold);
+    }
+
+    .nav-cta {
+      background: var(--green);
+      color: var(--white) !important;
+      padding: 0.55rem 1.4rem !important;
+      border-radius: 2px;
+      letter-spacing: 0.1em !important;
+    }
+
+    .nav-cta:hover {
+      background: var(--gold) !important;
+      color: var(--white) !important;
+    }
+
+    /* PAGES */
+    .page { display: none; padding-top: 80px; min-height: 100vh; }
+    .page.active { display: block; }
+
+    /* ===== HOME PAGE ===== */
+    .hero {
+      min-height: calc(100vh - 80px);
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      align-items: center;
+    }
+
+    .hero-text {
+      padding: 5rem 4rem 5rem 6rem;
+    }
+
+    .hero-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+
+    .hero-eyebrow::before {
+      content: '';
+      display: inline-block;
+      width: 30px;
+      height: 1px;
+      background: var(--gold);
+    }
+
+    .hero h1 {
+      font-size: clamp(2.8rem, 4vw, 4.2rem);
+      line-height: 1.15;
+      color: var(--green);
+      margin-bottom: 1.5rem;
+    }
+
+    .hero h1 em {
+      color: var(--gold);
+      font-style: italic;
+    }
+
+    .hero-desc {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: var(--text-light);
+      max-width: 440px;
+      margin-bottom: 2.5rem;
+    }
+
+    .btn-group {
+      display: flex;
+      gap: 1rem;
+      flex-wrap: wrap;
+    }
+
+    .btn-primary {
+      background: var(--green);
+      color: var(--white);
+      padding: 0.9rem 2rem;
+      border: none;
+      border-radius: 2px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .btn-primary:hover { background: var(--gold); }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--green);
+      padding: 0.9rem 2rem;
+      border: 1px solid var(--green);
+      border-radius: 2px;
+      font-family: 'Jost', sans-serif;
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: all 0.3s;
+    }
+
+    .btn-outline:hover {
+      background: var(--green);
+      color: var(--white);
+    }
+
+    .hero-image {
+      height: calc(100vh - 80px);
+      background: linear-gradient(135deg, var(--green-pale) 0%, var(--gold-pale) 100%);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-image-inner {
+      width: 100%;
+      height: 100%;
+      background-image:
+        radial-gradient(ellipse at 30% 70%, rgba(74,103,65,0.15) 0%, transparent 60%),
+        radial-gradient(ellipse at 70% 30%, rgba(184,145,58,0.12) 0%, transparent 60%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Decorative botanical SVG */
+    .botanical {
+      width: 420px;
+      height: 420px;
+      opacity: 0.18;
+    }
+
+    .hero-badge {
+      position: absolute;
+      bottom: 3rem;
+      left: 3rem;
+      background: var(--white);
+      padding: 1.5rem 2rem;
+      border-left: 3px solid var(--gold);
+      max-width: 220px;
+    }
+
+    .hero-badge p {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      margin-bottom: 0.3rem;
+    }
+
+    .hero-badge strong {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.5rem;
+      color: var(--green);
+      font-weight: 500;
+    }
+
+    /* Pillars section */
+    .pillars {
+      padding: 6rem 6rem;
+      background: var(--green);
+    }
+
+    .pillars-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2px;
+    }
+
+    .pillar {
+      background: rgba(255,255,255,0.05);
+      padding: 3rem 2rem;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.08);
+      transition: background 0.3s;
+    }
+
+    .pillar:hover { background: rgba(255,255,255,0.1); }
+
+    .pillar-icon {
+      font-size: 2rem;
+      margin-bottom: 1.2rem;
+      display: block;
+    }
+
+    .pillar h3 {
+      font-size: 1.3rem;
+      color: var(--cream);
+      margin-bottom: 0.8rem;
+    }
+
+    .pillar p {
+      font-size: 0.85rem;
+      color: rgba(249,245,239,0.65);
+      line-height: 1.7;
+    }
+
+    /* Quote section */
+    .quote-section {
+      padding: 7rem 6rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--cream-dark);
+    }
+
+    .quote-inner {
+      max-width: 700px;
+      text-align: center;
+    }
+
+    .quote-inner blockquote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: clamp(1.6rem, 2.5vw, 2.2rem);
+      font-style: italic;
+      color: var(--green);
+      line-height: 1.5;
+      margin-bottom: 1.5rem;
+    }
+
+    .quote-inner cite {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+    }
+
+    /* Testimonials */
+    .testimonials {
+      padding: 6rem 6rem;
+      background: var(--cream);
+    }
+
+    .section-header {
+      text-align: center;
+      margin-bottom: 4rem;
+    }
+
+    .section-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.8rem;
+    }
+
+    .section-header h2 {
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      color: var(--green);
+    }
+
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+    }
+
+    .testimonial-card {
+      background: var(--white);
+      padding: 2.5rem;
+      border-bottom: 3px solid var(--gold-pale);
+    }
+
+    .stars {
+      color: var(--gold);
+      margin-bottom: 1rem;
+      letter-spacing: 0.1em;
+    }
+
+    .testimonial-card p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: var(--text-light);
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .testimonial-author {
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--green);
+      font-weight: 500;
+    }
+
+    /* ===== ABOUT PAGE ===== */
+    .about-hero {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      min-height: 70vh;
+    }
+
+    .about-image-block {
+      background: linear-gradient(160deg, var(--green-pale), var(--gold-pale));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 4rem;
+      position: relative;
+      min-height: 540px;
+    }
+
+    .about-portrait {
+      width: 380px;
+      height: 380px;
+      position: relative;
+    }
+
+    .about-portrait::before {
+      content: '';
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      width: 100%;
+      height: 100%;
+      border: 2px solid var(--gold);
+      opacity: 0.5;
+      z-index: 0;
+    }
+
+    .about-portrait-img {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      height: 100%;
+      background: linear-gradient(145deg, var(--green-pale) 0%, var(--cream-dark) 60%, var(--gold-pale) 100%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .about-portrait-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center top;
+      display: block;
+    }
+
+    .about-portrait-placeholder {
+      text-align: center;
+      color: var(--text-light);
+    }
+
+    .about-portrait-placeholder p {
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--text-light);
+      opacity: 0.6;
+      margin-top: 0.8rem;
+    }
+
+    .about-portrait-caption {
+      position: absolute;
+      bottom: -1.2rem;
+      right: -1rem;
+      z-index: 2;
+      background: var(--white);
+      border-left: 3px solid var(--gold);
+      padding: 0.8rem 1.2rem;
+      white-space: nowrap;
+    }
+
+    .about-portrait-caption p {
+      font-size: 0.72rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.1rem;
+    }
+
+    .about-portrait-caption strong {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--green);
+      font-weight: 500;
+    }
+
+    .about-text {
+      padding: 5rem 5rem 5rem 4rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .about-text h1 {
+      font-size: clamp(2.2rem, 3vw, 3rem);
+      color: var(--green);
+      margin-bottom: 0.5rem;
+    }
+
+    .about-text .title {
+      font-size: 0.8rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 2rem;
+    }
+
+    .about-text p {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--text-light);
+      margin-bottom: 1.2rem;
+    }
+
+    .credentials {
+      padding: 5rem 6rem;
+      background: var(--cream-dark);
+    }
+
+    .credentials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .credential-item {
+      padding: 2rem;
+      border-left: 2px solid var(--gold);
+    }
+
+    .credential-item h4 {
+      font-size: 1.1rem;
+      color: var(--green);
+      margin-bottom: 0.4rem;
+    }
+
+    .credential-item p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.6;
+    }
+
+    /* ===== SERVICES PAGE ===== */
+    .services-hero {
+      background: var(--green);
+      padding: 6rem 6rem 5rem;
+      text-align: center;
+    }
+
+    .services-hero h1 {
+      font-size: clamp(2.5rem, 4vw, 3.8rem);
+      color: var(--cream);
+      margin-bottom: 1rem;
+    }
+
+    .services-hero p {
+      font-size: 1rem;
+      color: rgba(249,245,239,0.7);
+      max-width: 560px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .services-grid {
+      padding: 5rem 6rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 2px;
+      background: var(--cream-dark);
+    }
+
+    .service-card {
+      background: var(--cream);
+      padding: 3.5rem;
+      transition: background 0.3s;
+    }
+
+    .service-card:hover { background: var(--white); }
+
+    .service-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3rem;
+      color: var(--gold-pale);
+      line-height: 1;
+      margin-bottom: 1rem;
+    }
+
+    .service-card h3 {
+      font-size: 1.6rem;
+      color: var(--green);
+      margin-bottom: 1rem;
+    }
+
+    .service-card p {
+      font-size: 0.9rem;
+      line-height: 1.9;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .service-includes {
+      list-style: none;
+      margin-bottom: 2rem;
+    }
+
+    .service-includes li {
+      font-size: 0.82rem;
+      color: var(--text-light);
+      padding: 0.4rem 0;
+      padding-left: 1.2rem;
+      position: relative;
+    }
+
+    .service-includes li::before {
+      content: '—';
+      position: absolute;
+      left: 0;
+      color: var(--gold);
+    }
+
+    .service-tag {
+      display: inline-block;
+      background: var(--green-pale);
+      color: var(--green);
+      padding: 0.3rem 0.8rem;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    /* ===== BLOG PAGE ===== */
+    .blog-hero {
+      padding: 5rem 6rem 4rem;
+      background: var(--cream-dark);
+    }
+
+    .blog-hero h1 {
+      font-size: clamp(2.2rem, 3vw, 3rem);
+      color: var(--green);
+      margin-bottom: 0.8rem;
+    }
+
+    .blog-hero p {
+      font-size: 0.95rem;
+      color: var(--text-light);
+      max-width: 500px;
+      line-height: 1.8;
+    }
+
+    .blog-grid {
+      padding: 4rem 6rem;
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 3rem;
+    }
+
+    .blog-posts { display: flex; flex-direction: column; gap: 2rem; }
+
+    .blog-card {
+      display: grid;
+      grid-template-columns: 200px 1fr;
+      gap: 2rem;
+      background: var(--white);
+      padding: 1.5rem;
+      transition: box-shadow 0.3s;
+      cursor: pointer;
+    }
+
+    .blog-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+
+    .blog-card-img {
+      background: linear-gradient(135deg, var(--green-pale), var(--gold-pale));
+      height: 140px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 2rem;
+    }
+
+    .blog-card-content { padding: 0.5rem 0; }
+
+    .blog-tag {
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 0.5rem;
+    }
+
+    .blog-card h3 {
+      font-size: 1.25rem;
+      color: var(--green);
+      margin-bottom: 0.6rem;
+      line-height: 1.3;
+    }
+
+    .blog-card p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      line-height: 1.7;
+    }
+
+    .blog-meta {
+      font-size: 0.75rem;
+      color: var(--text-light);
+      margin-top: 0.8rem;
+      letter-spacing: 0.05em;
+    }
+
+    .blog-sidebar { }
+
+    .sidebar-widget {
+      background: var(--white);
+      padding: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .sidebar-widget h4 {
+      font-size: 1.1rem;
+      color: var(--green);
+      margin-bottom: 1.2rem;
+      padding-bottom: 0.8rem;
+      border-bottom: 1px solid var(--cream-dark);
+    }
+
+    .sidebar-widget ul { list-style: none; }
+
+    .sidebar-widget li {
+      padding: 0.6rem 0;
+      border-bottom: 1px solid var(--cream-dark);
+      font-size: 0.85rem;
+      color: var(--text-light);
+      cursor: pointer;
+    }
+
+    .sidebar-widget li:hover { color: var(--gold); }
+
+    .newsletter-form {
+      display: flex;
+      flex-direction: column;
+      gap: 0.8rem;
+    }
+
+    .newsletter-form input {
+      padding: 0.8rem 1rem;
+      border: 1px solid var(--cream-dark);
+      background: var(--cream);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.85rem;
+      outline: none;
+      transition: border-color 0.3s;
+    }
+
+    .newsletter-form input:focus { border-color: var(--gold); }
+
+    /* ===== BOOK PAGE ===== */
+    .book-hero {
+      background: linear-gradient(135deg, var(--green) 0%, #2d4228 100%);
+      padding: 6rem 6rem 5rem;
+      text-align: center;
+    }
+
+    .book-hero h1 {
+      font-size: clamp(2.5rem, 4vw, 3.8rem);
+      color: var(--cream);
+      margin-bottom: 1rem;
+    }
+
+    .book-hero p {
+      color: rgba(249,245,239,0.7);
+      font-size: 1rem;
+      max-width: 500px;
+      margin: 0 auto;
+      line-height: 1.8;
+    }
+
+    .book-content {
+      padding: 5rem 6rem;
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      gap: 5rem;
+      align-items: start;
+    }
+
+    .book-info h3 {
+      font-size: 1.6rem;
+      color: var(--green);
+      margin-bottom: 1.5rem;
+    }
+
+    .book-info p {
+      font-size: 0.9rem;
+      line-height: 1.9;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+    }
+
+    .what-to-expect { margin-top: 2rem; }
+
+    .what-to-expect h4 {
+      font-size: 1rem;
+      color: var(--green);
+      margin-bottom: 1rem;
+      font-family: 'Cormorant Garamond', serif;
+    }
+
+    .expect-item {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+      align-items: flex-start;
+    }
+
+    .expect-num {
+      background: var(--gold-pale);
+      color: var(--gold);
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+
+    .expect-item p {
+      font-size: 0.85rem !important;
+      margin-bottom: 0 !important;
+      line-height: 1.6 !important;
+    }
+
+    .bookafy-embed {
+      background: var(--white);
+      border: 1px solid var(--cream-dark);
+      padding: 3rem;
+      text-align: center;
+    }
+
+    .bookafy-embed h3 {
+      font-size: 1.5rem;
+      color: var(--green);
+      margin-bottom: 0.5rem;
+    }
+
+    .bookafy-embed p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+    }
+
+    .bookafy-placeholder {
+      background: var(--cream);
+      border: 2px dashed var(--cream-dark);
+      padding: 4rem 2rem;
+      color: var(--text-light);
+      font-size: 0.85rem;
+      line-height: 1.8;
+    }
+
+    .bookafy-placeholder code {
+      display: block;
+      background: var(--green);
+      color: var(--cream);
+      padding: 1rem 1.5rem;
+      margin-top: 1.5rem;
+      font-size: 0.78rem;
+      text-align: left;
+      border-radius: 2px;
+    }
+
+    /* FOOTER */
+    footer {
+      background: var(--text);
+      padding: 4rem 6rem 2rem;
+    }
+
+    .footer-grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr 1fr 1fr;
+      gap: 3rem;
+      margin-bottom: 3rem;
+    }
+
+    .footer-brand h3 {
+      font-size: 1.4rem;
+      color: var(--cream);
+      margin-bottom: 0.3rem;
+    }
+
+    .footer-brand .tagline {
+      font-size: 0.75rem;
+      letter-spacing: 0.1em;
+      color: var(--gold);
+      text-transform: uppercase;
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-brand p {
+      font-size: 0.85rem;
+      color: rgba(249,245,239,0.5);
+      line-height: 1.7;
+      max-width: 260px;
+    }
+
+    .footer-col h4 {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--gold);
+      margin-bottom: 1.2rem;
+    }
+
+    .footer-col ul { list-style: none; }
+
+    .footer-col li {
+      font-size: 0.85rem;
+      color: rgba(249,245,239,0.5);
+      margin-bottom: 0.6rem;
+      cursor: pointer;
+      transition: color 0.2s;
+    }
+
+    .footer-col li:hover { color: var(--cream); }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.08);
+      padding-top: 2rem;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .footer-bottom p {
+      font-size: 0.78rem;
+      color: rgba(249,245,239,0.3);
+    }
+
+    /* DECORATIVE DIVIDER */
+    .divider {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+      padding: 2rem 0;
+      color: var(--gold);
+      opacity: 0.4;
+      font-size: 0.8rem;
+      letter-spacing: 0.2em;
+    }
+
+    .divider::before, .divider::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--gold);
+      max-width: 100px;
+    }
+
+    @media (max-width: 900px) {
+      nav { padding: 1rem 1.5rem; }
+      .nav-links { gap: 1.2rem; }
+      .hero, .about-hero { grid-template-columns: 1fr; }
+      .hero-image { height: 40vh; }
+      .hero-text, .about-text { padding: 3rem 2rem; }
+      .pillars-grid, .testimonials-grid, .credentials-grid { grid-template-columns: 1fr; }
+      .services-grid { grid-template-columns: 1fr; }
+      .blog-grid { grid-template-columns: 1fr; }
+      .blog-card { grid-template-columns: 1fr; }
+      .book-content { grid-template-columns: 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+      .pillars, .services-hero, .services-grid, .testimonials, .blog-hero, .blog-grid, .book-hero, .book-content, .credentials, .quote-section, footer { padding-left: 2rem; padding-right: 2rem; }
+      .hero-text { padding-left: 2rem; padding-right: 2rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav id="main-nav">
+    <div class="nav-logo" onclick="showPage('home')">Anne <span>Lane</span></div>
+    <ul class="nav-links">
+      <li><a href="#" onclick="showPage('home')" id="nav-home" class="active">Home</a></li>
+      <li><a href="#" onclick="showPage('about')" id="nav-about">About</a></li>
+      <li><a href="#" onclick="showPage('services')" id="nav-services">Services</a></li>
+      <li><a href="#" onclick="showPage('blog')" id="nav-blog">Resources</a></li>
+      <li><a href="#" onclick="showPage('book')" id="nav-book" class="nav-cta">Book a Session</a></li>
+    </ul>
+  </nav>
+
+  <!-- ===== HOME PAGE ===== -->
+  <div id="page-home" class="page active">
+    <section class="hero">
+      <div class="hero-text">
+        <div class="hero-eyebrow">European-Trained Naturopath</div>
+        <h1>You've tried<br><em>all the things.</em><br>Let's find what works.</h1>
+        <p class="hero-desc">If you're here, you're probably looking for real answers to an ongoing health issue you just can't seem to get a handle on. That's often where I come in.</p>
+        <div class="btn-group">
+          <button class="btn-primary" onclick="showPage('book')">Book a Consultation</button>
+          <button class="btn-outline" onclick="showPage('about')">Meet Anne</button>
+        </div>
+      </div>
+      <div class="hero-image">
+        <div class="hero-image-inner">
+          <svg class="botanical" viewBox="0 0 400 400" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <ellipse cx="200" cy="200" rx="80" ry="160" fill="#4a6741" transform="rotate(0 200 200)"/>
+            <ellipse cx="200" cy="200" rx="70" ry="140" fill="#4a6741" transform="rotate(45 200 200)"/>
+            <ellipse cx="200" cy="200" rx="60" ry="120" fill="#4a6741" transform="rotate(90 200 200)"/>
+            <ellipse cx="200" cy="200" rx="50" ry="100" fill="#4a6741" transform="rotate(135 200 200)"/>
+            <circle cx="200" cy="200" r="20" fill="#b8913a"/>
+            <line x1="200" y1="40" x2="200" y2="360" stroke="#b8913a" stroke-width="1.5"/>
+            <line x1="40" y1="200" x2="360" y2="200" stroke="#b8913a" stroke-width="1.5"/>
+            <circle cx="200" cy="40" r="5" fill="#b8913a"/>
+            <circle cx="200" cy="360" r="5" fill="#b8913a"/>
+            <circle cx="40" cy="200" r="5" fill="#b8913a"/>
+            <circle cx="360" cy="200" r="5" fill="#b8913a"/>
+          </svg>
+        </div>
+        <div class="hero-badge">
+          <p>European-trained</p>
+          <strong>25 Years<br>of Practice</strong>
+        </div>
+      </div>
+    </section>
+
+    <section class="pillars">
+      <div class="pillars-grid">
+        <div class="pillar">
+          <span class="pillar-icon">🌿</span>
+          <h3>Traditional Chinese Medicine</h3>
+          <p>Ancient wisdom applied to modern hormonal and reproductive health challenges.</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-icon">🔬</span>
+          <h3>Functional Medicine</h3>
+          <p>Root-cause investigation into hormonal imbalances, nutritional deficiencies, and gut health.</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-icon">✨</span>
+          <h3>Energy Medicine</h3>
+          <p>Shifting the body's energy to support healing and restore vitality from the inside out.</p>
+        </div>
+        <div class="pillar">
+          <span class="pillar-icon">🌸</span>
+          <h3>Personalized Framework</h3>
+          <p>A unique approach that hones in on what your body specifically needs — and shifts things quickly.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="quote-section">
+      <div class="quote-inner">
+        <blockquote>"Your body is not broken. It's asking to be heard — and I'm here to help you listen to it."</blockquote>
+        <cite>— Anne Lane, Naturopath</cite>
+      </div>
+    </section>
+
+    <section class="testimonials">
+      <div class="section-header">
+        <div class="section-eyebrow">Client Stories</div>
+        <h2>Women who found their way back</h2>
+      </div>
+      <div class="testimonials-grid">
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"Anne completely transformed how I understand my body. After years of feeling dismissed by conventional medicine, she helped me find real answers for my perimenopause symptoms."</p>
+          <div class="testimonial-author">Sarah M. — Perimenopause Client</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"I had been struggling with unexplained infertility for two years. Anne's approach was holistic, compassionate, and thorough. Six months later, I'm expecting my first child."</p>
+          <div class="testimonial-author">Jenna R. — Fertility Client</div>
+        </div>
+        <div class="testimonial-card">
+          <div class="stars">★★★★★</div>
+          <p>"The nutrition guidance Anne provided changed everything. My energy levels are higher than they've been in a decade. She truly listens and crafts a plan that fits your life."</p>
+          <div class="testimonial-author">Diane K. — Nutrition Client</div>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== ABOUT PAGE ===== -->
+  <div id="page-about" class="page">
+    <section class="about-hero">
+      <div class="about-image-block">
+        <div class="about-portrait">
+          <div class="about-portrait-img">
+            <!-- To add Anne's photo: replace the placeholder div below with <img src="anne-lane.jpg" alt="Anne Lane" /> -->
+            <img src="anne.jpg" alt="Anne Lane, Naturopath" style="width:100%;height:100%;object-fit:cover;object-position:center top;display:block;" />
+          </div>
+          <div class="about-portrait-caption">
+            <p>Naturopath</p>
+            <strong>Anne Lane</strong>
+          </div>
+        </div>
+      </div>
+      <div class="about-text">
+        <h1>Anne Lane</h1>
+        <div class="title">European-Trained Naturopath · TCM · Functional & Energy Medicine</div>
+        <p>If you've landed here, you're probably looking for a solution to a specific problem — something ongoing that you just can't seem to get a handle on, even after trying all the things. That's often where I come into the picture.</p>
+        <p>As a European-trained Naturopath, I integrate Traditional Chinese Medicine, Functional Medicine, and Energy Medicine to support you on your path to feeling healthy and vital again. Most of my work has been with women going through perimenopause, as well as couples who want to conceive. Getting to the root cause of hormonal imbalances, nutritional deficiencies, and gut issues is at the heart of everything I do — whether I'm working with women or men.</p>
+        <p>I've developed a framework that allows me to hone in on the main issues your body is struggling with and shift the energy quickly. Our initial 90-minute session reveals an outline for working together — and often comes with a list of "homework" we follow up on in subsequent sessions. That's why it's best if we work together over a minimum of 3 months, so I can truly support you in meeting your goals.</p>
+        <p style="font-style: italic; color: var(--green);">On a personal note: I'm a Gen Xer (and not a fan of social media), a mom to two teenage superdudes, a 25-year expat, traveller, reader, and dedicated to creating a healthier future generation. I love working with people who are ready to do the work.</p>
+        <div class="btn-group" style="margin-top: 1.5rem;">
+          <button class="btn-primary" onclick="showPage('book')">Work With Me</button>
+          <button class="btn-outline" onclick="showPage('blog')">Read Lane Musings</button>
+        </div>
+      </div>
+    </section>
+
+    <section class="credentials">
+      <div class="section-header">
+        <div class="section-eyebrow">Education & Training</div>
+        <h2>My background</h2>
+      </div>
+      <div class="credentials-grid">
+        <div class="credential-item">
+          <h4>European Naturopathic Training</h4>
+          <p>Formally trained in Europe in the tradition of classical naturopathy, integrating multiple healing systems into a cohesive clinical practice.</p>
+        </div>
+        <div class="credential-item">
+          <h4>Traditional Chinese Medicine</h4>
+          <p>Deep study and application of TCM principles — including acupuncture theory, herbal medicine, and energetic diagnostics.</p>
+        </div>
+        <div class="credential-item">
+          <h4>Functional Medicine</h4>
+          <p>Root-cause investigation into hormonal imbalances, nutritional deficiencies, gut dysfunction, and chronic health patterns.</p>
+        </div>
+        <div class="credential-item">
+          <h4>Energy Medicine</h4>
+          <p>Trained in energy-based healing modalities that work alongside physical protocols to support whole-body restoration.</p>
+        </div>
+        <div class="credential-item">
+          <h4>Women's Hormonal Health</h4>
+          <p>Extensive clinical experience supporting women through perimenopause, menopause, and reproductive health challenges.</p>
+        </div>
+        <div class="credential-item">
+          <h4>Fertility Support</h4>
+          <p>Specialized naturopathic support for couples trying to conceive — naturally and alongside assisted reproductive technologies.</p>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== SERVICES PAGE ===== -->
+  <div id="page-services" class="page">
+    <section class="services-hero">
+      <div class="section-eyebrow" style="color:var(--gold-light); margin-bottom:0.8rem;">What I Offer</div>
+      <h1>Care that meets<br><em style="font-style:italic; color:var(--gold-light);">you where you are</em></h1>
+      <p>Each service is designed to address your unique needs with a thoughtful, whole-person approach.</p>
+    </section>
+
+    <section class="services-grid">
+      <div class="service-card">
+        <div class="service-number">01</div>
+        <h3>Perimenopause Support</h3>
+        <p>Perimenopause can feel like your body has a mind of its own — and conventional medicine often doesn't have satisfying answers. I get to the root cause of your hormonal shifts using an integrated blend of TCM, Functional Medicine, and Energy Medicine.</p>
+        <ul class="service-includes">
+          <li>Root-cause hormonal assessment</li>
+          <li>Nutritional deficiency & gut health investigation</li>
+          <li>Personalized natural protocols</li>
+          <li>Energy & vitality restoration</li>
+        </ul>
+        <span class="service-tag">Women's Hormonal Health</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-number">02</div>
+        <h3>Fertility Support</h3>
+        <p>I work with couples who want to conceive, supporting both partners with a thorough naturopathic approach. Whether you're just starting out or have been trying for a while, I help optimize the conditions for conception from the ground up.</p>
+        <ul class="service-includes">
+          <li>Hormonal & nutritional optimization</li>
+          <li>Gut health & detoxification support</li>
+          <li>Natural & assisted fertility pathways</li>
+          <li>Couples-based naturopathic care</li>
+        </ul>
+        <span class="service-tag">Reproductive Health</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-number">03</div>
+        <h3>Nutrition & Lifestyle</h3>
+        <p>Nutritional deficiencies and gut imbalances underlie so many chronic health issues. I create individualized nutrition strategies that address the root cause — not just the symptoms — so you can feel genuinely energized and well.</p>
+        <ul class="service-includes">
+          <li>Personalized nutrition planning</li>
+          <li>Gut health & microbiome support</li>
+          <li>Supplement & lifestyle guidance</li>
+          <li>Anti-inflammatory protocols</li>
+        </ul>
+        <span class="service-tag">Functional Nutrition</span>
+      </div>
+
+      <div class="service-card">
+        <div class="service-number">04</div>
+        <h3>1:1 Consultations</h3>
+        <p>Our initial 90-minute session is where everything begins. I use a unique framework to hone in on the main issues your body is struggling with — and shift things quickly. We explore your specific needs together, and you leave with a clear plan and a list of next steps.</p>
+        <ul class="service-includes">
+          <li>90-min initial intake & assessment</li>
+          <li>Personalized "homework" action plan</li>
+          <li>Follow-up sessions to track progress</li>
+          <li>Minimum 3-month support recommended</li>
+        </ul>
+        <span class="service-tag">Personalized Care</span>
+      </div>
+    </section>
+
+    <section class="quote-section" style="background: var(--green-pale);">
+      <div class="quote-inner">
+        <blockquote>"I love working with people who are willing to do the work. If that's you, let's talk."</blockquote>
+        <cite>— Anne Lane, Naturopath</cite>
+        <div style="margin-top: 2rem;">
+          <button class="btn-primary" onclick="showPage('book')">Book Your First Session</button>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- ===== BLOG / RESOURCES PAGE ===== -->
+  <div id="page-blog" class="page">
+    <section class="blog-hero">
+      <div class="section-eyebrow" style="margin-bottom:0.6rem; font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold);">Resources & Insights</div>
+      <h1>Lane Musings</h1>
+      <p>Real talk on perimenopause, fertility, energy, and holistic health — written by a naturopath who believes you deserve actual answers, not just a prescription.</p>
+    </section>
+
+    <div class="blog-grid">
+      <div class="blog-posts">
+        <div class="blog-card">
+          <div class="blog-card-img">🌿</div>
+          <div class="blog-card-content">
+            <div class="blog-tag">Perimenopause</div>
+            <h3>The 10 Signs of Perimenopause Nobody Talks About</h3>
+            <p>Hot flashes get all the attention — but perimenopause shows up in surprising ways. Learn the lesser-known symptoms and what they mean for your hormonal health.</p>
+            <div class="blog-meta">February 10, 2025 · 7 min read</div>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-card-img">🌸</div>
+          <div class="blog-card-content">
+            <div class="blog-tag">Fertility</div>
+            <h3>How Nutrition Impacts Egg Quality — and What to Eat</h3>
+            <p>Egg quality is not fixed. Discover the key nutrients, antioxidants, and dietary patterns that support optimal ovarian function and fertility.</p>
+            <div class="blog-meta">January 28, 2025 · 9 min read</div>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-card-img">🍃</div>
+          <div class="blog-card-content">
+            <div class="blog-tag">Nutrition</div>
+            <h3>The Hormone-Gut Connection: What Every Woman Should Know</h3>
+            <p>Your gut microbiome plays a starring role in hormone balance. Here's what the research says — and how to support both your gut and your hormones naturally.</p>
+            <div class="blog-meta">January 14, 2025 · 6 min read</div>
+          </div>
+        </div>
+        <div class="blog-card">
+          <div class="blog-card-img">✨</div>
+          <div class="blog-card-content">
+            <div class="blog-tag">Energy & Wellbeing</div>
+            <h3>Why You're Exhausted — Even When You Sleep</h3>
+            <p>Fatigue is one of the most common complaints I hear. This article explores the hormonal, nutritional, and lifestyle roots of chronic tiredness in women.</p>
+            <div class="blog-meta">December 30, 2024 · 8 min read</div>
+          </div>
+        </div>
+      </div>
+
+      <aside class="blog-sidebar">
+        <div class="sidebar-widget">
+          <h4>Browse by Topic</h4>
+          <ul>
+            <li>🌿 Perimenopause</li>
+            <li>🌸 Fertility & Preconception</li>
+            <li>🍃 Nutrition & Food</li>
+            <li>✨ Energy & Vitality</li>
+            <li>💛 Hormonal Health</li>
+            <li>🫀 Mind & Body</li>
+          </ul>
+        </div>
+        <div class="sidebar-widget">
+          <h4>Free Resources</h4>
+          <p style="font-size:0.85rem; color:var(--text-light); line-height:1.7; margin-bottom:1rem;">Sign up for <strong>Lane Musings</strong> — Anne's email list where she shares real insights on hormonal health, fertility, energy, and naturopathic living. No algorithms, no ads. Just good information.</p>
+          <div class="newsletter-form">
+            <input type="text" placeholder="Your name" />
+            <input type="email" placeholder="Your email" />
+            <button class="btn-primary" style="width:100%;">Send Me the Guide</button>
+          </div>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- ===== BOOK PAGE ===== -->
+  <div id="page-book" class="page">
+    <section class="book-hero">
+      <div class="section-eyebrow" style="color:var(--gold-light); font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; margin-bottom:0.8rem;">Ready to begin?</div>
+      <h1>Book a Session</h1>
+      <p>Choose a time that works for you and take the first step toward feeling like yourself again.</p>
+    </section>
+
+    <section class="book-content">
+      <div class="book-info">
+        <h3>What to expect</h3>
+        <p>Our initial 90-minute session is where the real work begins. I use a unique framework to hone in on what your body is specifically struggling with — and to start shifting things quickly. Come ready to share your full story.</p>
+
+        <div class="what-to-expect">
+          <h4>Your first 90-minute session</h4>
+          <div class="expect-item">
+            <div class="expect-num">1</div>
+            <p>A thorough intake exploring your health history, current symptoms, and goals — nothing is too small to mention.</p>
+          </div>
+          <div class="expect-item">
+            <div class="expect-num">2</div>
+            <p>An outline for working together, tailored to your specific needs and what your body is asking for.</p>
+          </div>
+          <div class="expect-item">
+            <div class="expect-num">3</div>
+            <p>A "homework" action plan to begin with — things you can start implementing right away.</p>
+          </div>
+          <div class="expect-item">
+            <div class="expect-num">4</div>
+            <p>Ongoing follow-up sessions over a minimum of 3 months, so I can truly support you in reaching your goals.</p>
+          </div>
+        </div>
+
+        <div style="margin-top: 2.5rem; padding: 1.5rem; background: var(--gold-pale); border-left: 3px solid var(--gold);">
+          <p style="font-size:0.85rem; color:var(--text-light); line-height:1.7; margin:0;"><strong style="color:var(--green);">Questions before booking?</strong><br>Feel free to reach out at <a href="/cdn-cgi/l/email-protection#660e030a0a0926070808030a0708034805090b" style="color:var(--gold);"><span class="__cf_email__" data-cfemail="5c34393030331c3d323239303d3239723f3331">[email&#160;protected]</span></a> — I'm happy to answer any questions before your first session.</p>
+        </div>
+      </div>
+
+      <div class="bookafy-embed">
+        <h3>Schedule Your Appointment</h3>
+        <p>Powered by Bookafy — choose a service and a time that works for you.</p>
+        <div class="bookafy-placeholder">
+          <p>📅 Your Bookafy scheduling widget will appear here.</p>
+          <p style="margin-top:0.8rem; font-size:0.8rem;">To embed your Bookafy calendar, replace this block with your Bookafy embed code. It looks like this:</p>
+          <code>
+&lt;!-- Bookafy Embed --&gt;<br>
+&lt;div id="bookafy-widget"&gt;&lt;/div&gt;<br>
+&lt;script src="https://app.bookafy.com/embed/..."&gt;&lt;/script&gt;
+          </code>
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Anne Lane</h3>
+        <div class="tagline">European-Trained Naturopath</div>
+        <p>Integrating Traditional Chinese Medicine, Functional Medicine, and Energy Medicine to help you get to the root of what's holding you back — and feel healthy and vital again.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li onclick="showPage('home')">Home</li>
+          <li onclick="showPage('about')">About</li>
+          <li onclick="showPage('services')">Services</li>
+          <li onclick="showPage('blog')">Resources</li>
+          <li onclick="showPage('book')">Book a Session</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li>Perimenopause</li>
+          <li>Fertility Coaching</li>
+          <li>Nutrition & Lifestyle</li>
+          <li>1:1 Consultations</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="98f0fdf4f4f7d8f9f6f6fdf4f9f6fdb6fbf7f5">[email&#160;protected]</a></li>
+          <li onclick="showPage('blog')">Lane Musings Newsletter</li>
+          <li onclick="showPage('book')">Book a Session</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Anne Lane, ND. All rights reserved.</p>
+      <p>Privacy Policy · Terms of Use</p>
+    </div>
+  </footer>
+
+  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    function showPage(page) {
+      // Hide all pages
+      document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+      // Show selected
+      document.getElementById('page-' + page).classList.add('active');
+      // Update nav active state
+      document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
+      const activeLink = document.getElementById('nav-' + page);
+      if (activeLink) activeLink.classList.add('active');
+      // Scroll to top
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return false;
+    }
+
+    // Prevent default link behavior
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', e => e.preventDefault());
+    });
+  </script>
+</body>
+</html>
