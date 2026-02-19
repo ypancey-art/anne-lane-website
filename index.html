@@ -1435,15 +1435,7 @@
   </div>
 
   <!-- ===== BLOG / RESOURCES PAGE ===== -->
-  <div id="page-blog" class="page">
-    <section style="min-height:60vh; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:1.5rem; text-align:center; padding:4rem;">
-      <h2 style="font-family:'Cormorant Garamond',serif; font-size:2.5rem; color:var(--green);">Taking you to Lane Musings...</h2>
-      <p style="color:var(--text-light);">If you are not redirected automatically, <a href="blog/index.html" style="color:var(--gold);">click here</a>.</p>
-    </section>
-    <script>window.location.href = 'blog/index.html';</script>
-  </div>
-
-    <!-- ===== BOOK PAGE ===== -->
+  <!-- ===== BOOK PAGE ===== -->
   <div id="page-book" class="page">
     <section class="book-hero">
       <div class="section-eyebrow" style="color:var(--gold-light); font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; margin-bottom:0.8rem;">Ready to begin?</div>
@@ -1590,24 +1582,35 @@
     </div>
   </footer>
 
-  <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+  <script>
     function handleSubmit(e) {
       e.preventDefault();
-      // Show success message
       document.getElementById('form-success').style.display = 'block';
       document.getElementById('contact-form').reset();
-      // Hide success after 6 seconds
       setTimeout(() => {
         document.getElementById('form-success').style.display = 'none';
       }, 6000);
-      // TO WIRE UP: replace above with a fetch() POST to Formspree or your email service
-      // Example: fetch('https://formspree.io/f/YOUR_ID', { method:'POST', body: new FormData(e.target) })
     }
 
     function showPage(page) {
-      // Hide all pages
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
       document.getElementById('page-' + page).classList.add('active');
       document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
       const activeLink = document.getElementById('nav-' + page);
-      if (activeLink) activeLink.classList.add('active')
+      if (activeLink) activeLink.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return false;
+    }
+
+    // Only prevent default on hash links, allow real href links like blog/index.html
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', e => {
+        const href = a.getAttribute('href');
+        if (href === '#' || href.startsWith('#')) {
+          e.preventDefault();
+        }
+      });
+    });
+  </script>
+</body>
+</html>
