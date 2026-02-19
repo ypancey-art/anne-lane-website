@@ -1322,7 +1322,7 @@
         <p style="font-style: italic; color: var(--green);">On a personal note: I'm a Gen Xer (and not a fan of social media), a mom to two teenage superdudes, a 25-year expat, traveller, reader, and dedicated to creating a healthier future generation. I love working with people who are ready to do the work.</p>
         <div class="btn-group" style="margin-top: 1.5rem;">
           <button class="btn-primary" onclick="showPage('book')">Work With Me</button>
-          <button class="btn-outline" onclick="showPage('blog')">Read Lane Musings</button>
+          <button class="btn-outline" onclick="window.location='blog/index.html'">Read Lane Musings</button>
         </div>
       </div>
     </section>
@@ -1436,78 +1436,14 @@
 
   <!-- ===== BLOG / RESOURCES PAGE ===== -->
   <div id="page-blog" class="page">
-    <section class="blog-hero">
-      <div class="section-eyebrow" style="margin-bottom:0.6rem; font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold);">Resources & Insights</div>
-      <h1>Lane Musings</h1>
-      <p>Real talk on perimenopause, fertility, energy, and holistic health — written by a naturopath who believes you deserve actual answers, not just a prescription.</p>
+    <section style="min-height:60vh; display:flex; align-items:center; justify-content:center; flex-direction:column; gap:1.5rem; text-align:center; padding:4rem;">
+      <h2 style="font-family:'Cormorant Garamond',serif; font-size:2.5rem; color:var(--green);">Taking you to Lane Musings...</h2>
+      <p style="color:var(--text-light);">If you are not redirected automatically, <a href="blog/index.html" style="color:var(--gold);">click here</a>.</p>
     </section>
-
-    <div class="blog-grid">
-      <div class="blog-posts">
-        <div class="blog-card">
-          <div class="blog-card-img">🌿</div>
-          <div class="blog-card-content">
-            <div class="blog-tag">Perimenopause</div>
-            <h3>The 10 Signs of Perimenopause Nobody Talks About</h3>
-            <p>Hot flashes get all the attention — but perimenopause shows up in surprising ways. Learn the lesser-known symptoms and what they mean for your hormonal health.</p>
-            <div class="blog-meta">February 10, 2025 · 7 min read</div>
-          </div>
-        </div>
-        <div class="blog-card">
-          <div class="blog-card-img">🌸</div>
-          <div class="blog-card-content">
-            <div class="blog-tag">Fertility</div>
-            <h3>How Nutrition Impacts Egg Quality — and What to Eat</h3>
-            <p>Egg quality is not fixed. Discover the key nutrients, antioxidants, and dietary patterns that support optimal ovarian function and fertility.</p>
-            <div class="blog-meta">January 28, 2025 · 9 min read</div>
-          </div>
-        </div>
-        <div class="blog-card">
-          <div class="blog-card-img">🍃</div>
-          <div class="blog-card-content">
-            <div class="blog-tag">Nutrition</div>
-            <h3>The Hormone-Gut Connection: What Every Woman Should Know</h3>
-            <p>Your gut microbiome plays a starring role in hormone balance. Here's what the research says — and how to support both your gut and your hormones naturally.</p>
-            <div class="blog-meta">January 14, 2025 · 6 min read</div>
-          </div>
-        </div>
-        <div class="blog-card">
-          <div class="blog-card-img">✨</div>
-          <div class="blog-card-content">
-            <div class="blog-tag">Energy & Wellbeing</div>
-            <h3>Why You're Exhausted — Even When You Sleep</h3>
-            <p>Fatigue is one of the most common complaints I hear. This article explores the hormonal, nutritional, and lifestyle roots of chronic tiredness in women.</p>
-            <div class="blog-meta">December 30, 2024 · 8 min read</div>
-          </div>
-        </div>
-      </div>
-
-      <aside class="blog-sidebar">
-        <div class="sidebar-widget">
-          <h4>Browse by Topic</h4>
-          <ul>
-            <li>🌿 Perimenopause</li>
-            <li>🌸 Fertility & Preconception</li>
-            <li>🍃 Nutrition & Food</li>
-            <li>✨ Energy & Vitality</li>
-            <li>💛 Hormonal Health</li>
-            <li>🫀 Mind & Body</li>
-          </ul>
-        </div>
-        <div class="sidebar-widget">
-          <h4>Free Resources</h4>
-          <p style="font-size:0.85rem; color:var(--text-light); line-height:1.7; margin-bottom:1rem;">Sign up for <strong>Lane Musings</strong> — Anne's email list where she shares real insights on hormonal health, fertility, energy, and naturopathic living. No algorithms, no ads. Just good information.</p>
-          <div class="newsletter-form">
-            <input type="text" placeholder="Your name" />
-            <input type="email" placeholder="Your email" />
-            <button class="btn-primary" style="width:100%;">Send Me the Guide</button>
-          </div>
-        </div>
-      </aside>
-    </div>
+    <script>window.location.href = 'blog/index.html';</script>
   </div>
 
-  <!-- ===== BOOK PAGE ===== -->
+    <!-- ===== BOOK PAGE ===== -->
   <div id="page-book" class="page">
     <section class="book-hero">
       <div class="section-eyebrow" style="color:var(--gold-light); font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; margin-bottom:0.8rem;">Ready to begin?</div>
@@ -1642,7 +1578,7 @@
       <div class="footer-col">
         <h4>Connect</h4>
         <ul>
-          <li>hello@annelane.com</li>
+          <li><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="1e767b7272715e7f70707b727f707b307d7173">[email&#160;protected]</a></li>
           <li onclick="window.location='blog/index.html'">Lane Musings Newsletter</li>
           <li onclick="showPage('book')">Book a Session</li>
         </ul>
@@ -1671,8 +1607,17 @@
     function showPage(page) {
       // Hide all pages
       document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
-      // Show selected
       document.getElementById('page-' + page).classList.add('active');
-      // Update nav active state
       document.querySelectorAll('.nav-links a').forEach(a => a.classList.remove('active'));
-      const activeLink = document.getElementById('nav-' + pa
+      const activeLink = document.getElementById('nav-' + page);
+      if (activeLink) activeLink.classList.add('active');
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return false;
+    }
+
+    document.querySelectorAll('.nav-links a').forEach(a => {
+      a.addEventListener('click', e => e.preventDefault());
+    });
+  </script>
+</body>
+</html>
