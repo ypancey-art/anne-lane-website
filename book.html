@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Book a Session | Anne Lane Naturopath</title>
+  <meta name="description" content="Book a 90-minute initial consultation with Anne Lane, European-trained Naturopath. Take the first step toward feeling like yourself again." />
+  <meta name="author" content="Anne Lane" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav id="main-nav">
+    <a href="index.html" class="nav-logo">Anne <span>Lane</span></a>
+    <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+      <li><a href="about.html" onclick="closeMenu()">About</a></li>
+      <li><a href="services.html" onclick="closeMenu()">Services</a></li>
+      <li><a href="blog/index.html" onclick="closeMenu()">Resources</a></li>
+      <li><a href="book.html" class="nav-cta active" onclick="closeMenu()">Book a Session</a></li>
+    </ul>
+  </nav>
+
+  <section class="book-hero">
+    <div class="section-eyebrow" style="color:var(--gold-light); font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; margin-bottom:0.8rem;">Ready to begin?</div>
+    <h1>Book a Session</h1>
+    <p>Choose a time that works for you and take the first step toward feeling like yourself again.</p>
+  </section>
+
+  <section class="book-content">
+    <div class="book-info">
+      <h3>What to expect</h3>
+      <p>Our initial 90-minute session is where the real work begins. I use a unique framework to hone in on what your body is specifically struggling with — and to start shifting things quickly. Come ready to share your full story.</p>
+
+      <div class="what-to-expect">
+        <h4>Your first 90-minute session</h4>
+        <div class="expect-item">
+          <div class="expect-num">1</div>
+          <p>A thorough intake exploring your health history, current symptoms, and goals — nothing is too small to mention.</p>
+        </div>
+        <div class="expect-item">
+          <div class="expect-num">2</div>
+          <p>An outline for working together, tailored to your specific needs and what your body is asking for.</p>
+        </div>
+        <div class="expect-item">
+          <div class="expect-num">3</div>
+          <p>A "homework" action plan to begin with — things you can start implementing right away.</p>
+        </div>
+        <div class="expect-item">
+          <div class="expect-num">4</div>
+          <p>Ongoing follow-up sessions over a minimum of 3 months, so I can truly support you in reaching your goals.</p>
+        </div>
+      </div>
+
+      <div style="margin-top: 2.5rem; padding: 1.5rem; background: var(--gold-pale); border-left: 3px solid var(--gold);">
+        <p style="font-size:0.85rem; color:var(--text-light); line-height:1.7; margin:0;"><strong style="color:var(--green);">Questions before booking?</strong><br>Feel free to reach out at <a href="mailto:hello@annelane.com" style="color:var(--gold);">hello@annelane.com</a> — I'm happy to answer any questions before your first session.</p>
+      </div>
+    </div>
+
+    <div class="bookafy-embed">
+      <h3>Schedule Your Appointment</h3>
+      <p>Powered by Bookafy — choose a service and a time that works for you.</p>
+      <div class="bookafy-placeholder">
+        <p>📅 Your Bookafy scheduling widget will appear here.</p>
+        <p style="margin-top:0.8rem; font-size:0.8rem;">To embed your Bookafy calendar, replace this block with your Bookafy embed code. It looks like this:</p>
+        <code>
+&lt;!-- Bookafy Embed --&gt;<br>
+&lt;div id="bookafy-widget"&gt;&lt;/div&gt;<br>
+&lt;script src="https://app.bookafy.com/embed/..."&gt;&lt;/script&gt;
+        </code>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT FORM -->
+  <section class="contact-section">
+    <div class="contact-inner">
+      <div class="section-eyebrow" style="font-size:0.75rem; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:0.6rem;">Get in Touch</div>
+      <h2>Have a question before booking?</h2>
+      <p>Not quite ready to book but want to know more? Send Anne a message and she'll get back to you within 2 business days.</p>
+
+      <form class="contact-form" id="contact-form" onsubmit="handleSubmit(event)">
+
+        <div class="form-field">
+          <label for="contact-name">Your Name</label>
+          <input type="text" id="contact-name" name="name" placeholder="Jane Smith" required />
+        </div>
+
+        <div class="form-field">
+          <label for="contact-email">Email Address</label>
+          <input type="email" id="contact-email" name="email" placeholder="jane@email.com" required />
+        </div>
+
+        <div class="form-field field-full">
+          <label for="contact-subject">What brings you here?</label>
+          <select id="contact-subject" name="subject" required>
+            <option value="" disabled selected>Select a topic…</option>
+            <option value="perimenopause">Perimenopause support</option>
+            <option value="fertility">Fertility coaching</option>
+            <option value="nutrition">Nutrition & lifestyle</option>
+            <option value="consultation">1:1 consultations</option>
+            <option value="general">General question</option>
+            <option value="other">Something else</option>
+          </select>
+        </div>
+
+        <div class="form-field field-full">
+          <label for="contact-message">Your Message</label>
+          <textarea id="contact-message" name="message" placeholder="Tell Anne a little about what you're dealing with and what you're hoping to get support with…" required></textarea>
+        </div>
+
+        <div class="form-success" id="form-success">
+          ✓ Thank you for reaching out! Anne will be in touch within 2 business days.
+        </div>
+
+        <div class="form-submit">
+          <button type="submit" class="btn-primary">Send Message</button>
+          <span class="form-note">Your information is never shared or sold.</span>
+        </div>
+
+      </form>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Anne Lane</h3>
+        <div class="tagline">European-Trained Naturopath</div>
+        <p>Integrating Traditional Chinese Medicine, Functional Medicine, and Energy Medicine to help you get to the root of what's holding you back — and feel healthy and vital again.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="blog/index.html">Resources</a></li>
+          <li><a href="book.html">Book a Session</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li>Perimenopause</li>
+          <li>Fertility Coaching</li>
+          <li>Nutrition &amp; Lifestyle</li>
+          <li>1:1 Consultations</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="mailto:hello@annelane.com">hello@annelane.com</a></li>
+          <li><a href="blog/index.html">Lane Musings Newsletter</a></li>
+          <li><a href="book.html">Book a Session</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Anne Lane, ND. All rights reserved.</p>
+      <p>Privacy Policy · Terms of Use</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+  <script>
+    function handleSubmit(e) {
+      e.preventDefault();
+      document.getElementById('form-success').style.display = 'block';
+      document.getElementById('contact-form').reset();
+      setTimeout(() => {
+        document.getElementById('form-success').style.display = 'none';
+      }, 6000);
+    }
+  </script>
+</body>
+</html>

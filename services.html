@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | Anne Lane Naturopath</title>
+  <meta name="description" content="Naturopathic services including perimenopause support, fertility coaching, nutrition & lifestyle guidance, and 1:1 consultations with Anne Lane." />
+  <meta name="author" content="Anne Lane" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <nav id="main-nav">
+    <a href="index.html" class="nav-logo">Anne <span>Lane</span></a>
+    <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="index.html" onclick="closeMenu()">Home</a></li>
+      <li><a href="about.html" onclick="closeMenu()">About</a></li>
+      <li><a href="services.html" class="active" onclick="closeMenu()">Services</a></li>
+      <li><a href="blog/index.html" onclick="closeMenu()">Resources</a></li>
+      <li><a href="book.html" class="nav-cta" onclick="closeMenu()">Book a Session</a></li>
+    </ul>
+  </nav>
+
+  <section class="services-hero">
+    <div class="section-eyebrow" style="color:var(--gold-light); margin-bottom:0.8rem;">What I Offer</div>
+    <h1>Care that meets<br><em style="font-style:italic; color:var(--gold-light);">you where you are</em></h1>
+    <p>Each service is designed to address your unique needs with a thoughtful, whole-person approach.</p>
+  </section>
+
+  <section class="services-grid">
+    <div class="service-card">
+      <div class="service-number">01</div>
+      <h3>Perimenopause Support</h3>
+      <p>Perimenopause can feel like your body has a mind of its own — and conventional medicine often doesn't have satisfying answers. I get to the root cause of your hormonal shifts using an integrated blend of TCM, Functional Medicine, and Energy Medicine.</p>
+      <ul class="service-includes">
+        <li>Root-cause hormonal assessment</li>
+        <li>Nutritional deficiency & gut health investigation</li>
+        <li>Personalized natural protocols</li>
+        <li>Energy & vitality restoration</li>
+      </ul>
+      <span class="service-tag">Women's Hormonal Health</span>
+    </div>
+
+    <div class="service-card">
+      <div class="service-number">02</div>
+      <h3>Fertility Support</h3>
+      <p>I work with couples who want to conceive, supporting both partners with a thorough naturopathic approach. Whether you're just starting out or have been trying for a while, I help optimize the conditions for conception from the ground up.</p>
+      <ul class="service-includes">
+        <li>Hormonal & nutritional optimization</li>
+        <li>Gut health & detoxification support</li>
+        <li>Natural & assisted fertility pathways</li>
+        <li>Couples-based naturopathic care</li>
+      </ul>
+      <span class="service-tag">Reproductive Health</span>
+    </div>
+
+    <div class="service-card">
+      <div class="service-number">03</div>
+      <h3>Nutrition & Lifestyle</h3>
+      <p>Nutritional deficiencies and gut imbalances underlie so many chronic health issues. I create individualized nutrition strategies that address the root cause — not just the symptoms — so you can feel genuinely energized and well.</p>
+      <ul class="service-includes">
+        <li>Personalized nutrition planning</li>
+        <li>Gut health & microbiome support</li>
+        <li>Supplement & lifestyle guidance</li>
+        <li>Anti-inflammatory protocols</li>
+      </ul>
+      <span class="service-tag">Functional Nutrition</span>
+    </div>
+
+    <div class="service-card">
+      <div class="service-number">04</div>
+      <h3>1:1 Consultations</h3>
+      <p>Our initial 90-minute session is where everything begins. I use a unique framework to hone in on the main issues your body is struggling with — and shift things quickly. We explore your specific needs together, and you leave with a clear plan and a list of next steps.</p>
+      <ul class="service-includes">
+        <li>90-min initial intake & assessment</li>
+        <li>Personalized "homework" action plan</li>
+        <li>Follow-up sessions to track progress</li>
+        <li>Minimum 3-month support recommended</li>
+      </ul>
+      <span class="service-tag">Personalized Care</span>
+    </div>
+  </section>
+
+  <section class="quote-section" style="background: var(--green-pale); position: relative;">
+    <div style="position:absolute;inset:0;background:rgba(249,245,239,0.88);"></div><div class="quote-inner" style="position:relative;z-index:1;">
+      <blockquote>"I love working with people who are willing to do the work. If that's you, let's talk."</blockquote>
+      <cite>— Anne Lane, Naturopath</cite>
+      <div style="margin-top: 2rem;">
+        <a href="book.html" class="btn-primary">Book Your First Session</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Anne Lane</h3>
+        <div class="tagline">European-Trained Naturopath</div>
+        <p>Integrating Traditional Chinese Medicine, Functional Medicine, and Energy Medicine to help you get to the root of what's holding you back — and feel healthy and vital again.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="services.html">Services</a></li>
+          <li><a href="blog/index.html">Resources</a></li>
+          <li><a href="book.html">Book a Session</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li>Perimenopause</li>
+          <li>Fertility Coaching</li>
+          <li>Nutrition &amp; Lifestyle</li>
+          <li>1:1 Consultations</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="mailto:hello@annelane.com">hello@annelane.com</a></li>
+          <li><a href="blog/index.html">Lane Musings Newsletter</a></li>
+          <li><a href="book.html">Book a Session</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Anne Lane, ND. All rights reserved.</p>
+      <p>Privacy Policy · Terms of Use</p>
+    </div>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
