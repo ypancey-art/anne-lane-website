@@ -99,7 +99,7 @@ nav {
   min-height: calc(100vh - 80px);
   display: grid;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
+  align-items: stretch; /* ensure hero sits flush under header */
   margin-top: 0;
 }
 
@@ -192,7 +192,7 @@ nav {
 }
 
 .hero-image {
-  height: calc(100vh - 80px);
+  height: 100%;
   background: linear-gradient(135deg, var(--green-pale) 0%, var(--gold-pale) 100%);
   position: relative;
   overflow: hidden;
