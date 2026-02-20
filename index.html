@@ -1724,6 +1724,14 @@
       return false;
     }
 
+    // Navigate to the correct section when arriving via hash link (e.g. from blog pages)
+    (function () {
+      const hash = window.location.hash.replace('#', '');
+      if (hash && ['home', 'about', 'services', 'book'].includes(hash)) {
+        showPage(hash);
+      }
+    })();
+
     // Only prevent default on hash links, allow real href links like blog/index.html
     document.querySelectorAll('.nav-links a').forEach(a => {
       a.addEventListener('click', e => {
