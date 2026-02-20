@@ -192,7 +192,7 @@ nav {
 }
 
 .hero-image {
-  height: 100%;
+  height: calc(100vh - 80px);
   background: linear-gradient(135deg, var(--green-pale) 0%, var(--gold-pale) 100%);
   position: relative;
   overflow: hidden;
