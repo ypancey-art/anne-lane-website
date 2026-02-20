@@ -28,13 +28,16 @@
 </head>
 <body>
 
-  <nav>
+  <nav id="main-nav">
     <a href="../index.html" class="nav-logo">Anne <span>Lane</span></a>
-    <ul class="nav-links">
+    <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
       <li><a href="../index.html">Home</a></li>
       <li><a href="../index.html">About</a></li>
       <li><a href="../index.html">Services</a></li>
-      <li><a href="index.html" class="active">Lane Musings</a></li>
+      <li><a href="index.html" class="active">Resources</a></li>
       <li><a href="../index.html" class="nav-cta">Book a Session</a></li>
     </ul>
   </nav>
@@ -190,4 +193,15 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025
+      <p>© 2025 Anne Lane. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      document.getElementById('hamburger').classList.toggle('open');
+      document.getElementById('nav-links').classList.toggle('open');
+    }
+  </script>
+</body>
+</html>
