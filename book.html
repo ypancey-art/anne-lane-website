@@ -83,18 +83,17 @@
       <h2>Have a question before booking?</h2>
       <p>Not quite ready to book but want to know more? Send Anne a message and she'll get back to you within 2 business days.</p>
 
-      <form class="contact-form" id="contact-form" action="https://formspree.io/f/mvzbbwqa" method="POST">
-
+      <form class="contact-form" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
+        <input type="hidden" name="access_key" value="0b2e6604-49f1-4843-8094-ca31b804cdba">  <!-- implemnting web3forms api key-->
+        <input type="hidden" name="redirect" id="redirect-url" value="">
         <div class="form-field">
           <label for="contact-name">Your Name</label>
           <input type="text" id="contact-name" name="name" placeholder="Jane Smith" required />
         </div>
-
         <div class="form-field">
           <label for="contact-email">Email Address</label>
           <input type="email" id="contact-email" name="email" placeholder="jane@email.com" required />
         </div>
-
         <div class="form-field field-full">
           <label for="contact-subject">What brings you here?</label>
           <select id="contact-subject" name="subject" required>
@@ -104,10 +103,8 @@
             <option value="nutrition">Nutrition & lifestyle</option>
             <option value="consultation">1:1 consultations</option>
             <option value="general">General question</option>
-            <option value="other">Something else</option>
           </select>
         </div>
-
         <div class="form-field field-full">
           <label for="contact-message">Your Message</label>
           <textarea id="contact-message" name="message" placeholder="Tell Anne a little about what you're dealing with and what you're hoping to get support with…" required></textarea>
@@ -115,6 +112,10 @@
 
         <div class="form-success" id="form-success">
           ✓ Thank you for reaching out! Anne will be in touch within 2 business days.
+        </div>
+
+        <div class="form-field field-full" style="margin-top: 1rem;">
+          <div class="h-captcha" data-captcha="true"></div>
         </div>
 
         <div class="form-submit">
@@ -168,15 +169,56 @@
   </footer>
 
   <script src="main.js"></script>
+  <!-- Web3Forms hCaptcha script -->
+  <script src="https://web3forms.com/client/script.js" async defer></script>
   <script>
-    function handleSubmit(e) {
-      e.preventDefault();
-      document.getElementById('form-success').style.display = 'block';
-      document.getElementById('contact-form').reset();
-      setTimeout(() => {
-        document.getElementById('form-success').style.display = 'none';
-      }, 6000);
-    }
+    // Set redirect URL dynamically based on current origin
+    window.addEventListener('DOMContentLoaded', function() {
+      // Set the redirect URL for web3forms
+      const redirectInput = document.getElementById('redirect-url');
+      if (redirectInput) {
+        const currentUrl = window.location.origin + window.location.pathname + '?success=1';
+        redirectInput.value = currentUrl;
+      }
+      
+      // Check for success parameter in URL when page loads
+      const urlParams = new URLSearchParams(window.location.search);
+      const success = urlParams.get('success');
+      
+      if (success === '1') {
+        // Show success message
+        const successMessage = document.getElementById('form-success');
+        if (successMessage) {
+          successMessage.style.display = 'block';
+          
+          // Scroll to success message
+          successMessage.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        }
+        
+        // Clear the form
+        const form = document.getElementById('contact-form');
+        if (form) {
+          form.reset();
+        }
+        
+        // Clean up URL by removing query parameters
+        window.history.replaceState({}, document.title, window.location.pathname);
+      }
+
+      // Client-side validation for hCaptcha
+      const form = document.getElementById('contact-form');
+      if (form) {
+        form.addEventListener('submit', function(e) {
+          const hCaptcha = form.querySelector('textarea[name="h-captcha-response"]');
+          
+          if (!hCaptcha || !hCaptcha.value) {
+            e.preventDefault();
+            alert('Please complete the captcha verification before submitting.');
+            return false;
+          }
+        });
+      }
+    });
   </script>
 </body>
 </html>
