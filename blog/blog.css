@@ -190,8 +190,34 @@ footer {
 
 /* ===== BLOG INDEX ===== */
 .blog-hero {
-  padding: 8rem 6rem 4rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: stretch;
   background: var(--cream-dark);
+  min-height: 480px;
+}
+
+.blog-hero-text {
+  padding: 8rem 4rem 4rem 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.blog-hero-image {
+  overflow: hidden;
+  position: relative;
+}
+
+.blog-hero-image img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 40% 16%;
+  transform: scale(1);
+  transform-origin: 10% 15%;
 }
 
 .eyebrow {
@@ -565,7 +591,10 @@ footer {
     border-radius: 2px;
   }
 
-  .blog-hero, .blog-categories, .blog-grid-outer, .post-hero, .post-layout, .post-nav, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
+  .blog-hero { grid-template-columns: 1fr; }
+  .blog-hero-image { order: -1; height: 260px; }
+  .blog-hero-text { padding: 3rem 1.5rem; justify-content: center; }
+  .blog-categories, .blog-grid-outer, .post-hero, .post-layout, .post-nav, footer { padding-left: 1.5rem; padding-right: 1.5rem; }
   .posts-grid { grid-template-columns: 1fr; }
   .blog-grid-outer, .post-layout { grid-template-columns: 1fr; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
