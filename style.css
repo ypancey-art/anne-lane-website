@@ -299,7 +299,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: var(--cream-dark);
+  background: linear-gradient(160deg, var(--green-pale), var(--gold-pale));
 }
 
 .quote-inner {
