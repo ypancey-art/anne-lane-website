@@ -287,6 +287,8 @@ footer {
   transition: box-shadow 0.3s, transform 0.3s;
   display: flex;
   flex-direction: column;
+  position: relative;
+  cursor: pointer;
 }
 
 .post-card:hover {
@@ -358,7 +360,13 @@ footer {
   transition: gap 0.2s;
 }
 
-.read-more:hover { gap: 0.7rem; }
+.read-more::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+}
+
+.post-card:hover .read-more { gap: 0.7rem; }
 
 /* Blog Sidebar */
 .blog-sidebar {}

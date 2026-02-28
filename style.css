@@ -824,43 +824,99 @@ nav {
   line-height: 1.6 !important;
 }
 
-.bookafy-embed {
+.tidycal-embed {
   background: var(--white);
   border: 1px solid var(--cream-dark);
   padding: 3rem;
-  text-align: center;
 }
 
-.bookafy-embed h3 {
+.tidycal-embed h3 {
   font-size: 1.5rem;
   color: var(--green);
   margin-bottom: 0.5rem;
 }
 
-.bookafy-embed p {
+.tidycal-embed > p {
   font-size: 0.85rem;
   color: var(--text-light);
   margin-bottom: 2rem;
 }
 
-.bookafy-placeholder {
+.session-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.session-card {
+  background: var(--cream);
+  border: 1px solid var(--cream-dark);
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: box-shadow 0.3s;
+}
+
+.session-card:hover {
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+}
+
+.session-card-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 0.2rem;
+}
+
+.session-duration {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-light);
+}
+
+.session-price {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.5rem;
+  color: var(--gold);
+  line-height: 1;
+}
+
+.session-price.free {
+  color: var(--green);
+}
+
+.session-card h4 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  color: var(--green);
+  font-weight: 400;
+}
+
+.session-card p {
+  font-size: 0.82rem;
+  color: var(--text-light);
+  line-height: 1.7;
+  flex: 1;
+}
+
+.session-btn {
+  align-self: flex-start;
+  font-size: 0.72rem;
+  padding: 0.6rem 1.4rem;
+  margin-top: 0.4rem;
+}
+
+.tidycal-placeholder {
   background: var(--cream);
   border: 2px dashed var(--cream-dark);
-  padding: 4rem 2rem;
+  padding: 3rem 2rem;
   color: var(--text-light);
   font-size: 0.85rem;
   line-height: 1.8;
-}
-
-.bookafy-placeholder code {
-  display: block;
-  background: var(--green);
-  color: var(--cream);
-  padding: 1rem 1.5rem;
-  margin-top: 1.5rem;
-  font-size: 0.78rem;
-  text-align: left;
-  border-radius: 2px;
+  text-align: center;
 }
 
 /* CONTACT FORM */
