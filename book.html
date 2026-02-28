@@ -74,7 +74,7 @@
           </div>
           <h4>Introduction Session</h4>
           <p>A no-commitment conversation to explore whether we're the right fit. We'll cover what you're experiencing and how I approach care.</p>
-          <a href="#" class="btn-outline session-btn" onclick="openBookingModal(event)">Book Free Session</a>
+          <a href="#" class="btn-outline session-btn" onclick="openBookingModal(event, '30')">Book Free Session</a>
         </div>
 
         <div class="session-card">
@@ -84,7 +84,7 @@
           </div>
           <h4>Initial Consultation</h4>
           <p>A thorough intake covering your health history, current symptoms, and goals. You'll leave with a personalised action plan to start implementing right away.</p>
-          <a href="#" class="btn-primary session-btn">Book Session</a>
+          <a href="#" class="btn-primary session-btn" onclick="openBookingModal(event, '60')">Book Session</a>
         </div>
 
         <div class="session-card">
@@ -94,13 +94,10 @@
           </div>
           <h4>Extended Consultation</h4>
           <p>For complex cases that benefit from more depth and time. Includes everything in the 60-minute session, with additional space to go further.</p>
-          <a href="#" class="btn-primary session-btn">Book Session</a>
+          <a href="#" class="btn-primary session-btn" onclick="openBookingModal(event, '75')">Book Session</a>
         </div>
 
       </div>
-
-      <div class="tidycal-embed" data-path="alane/75-minute-session"></div>
-      <script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
     </div>
   </section>
 
@@ -199,24 +196,29 @@
   <div id="booking-modal" class="booking-modal" onclick="handleModalBackdropClick(event)">
     <div class="booking-modal-inner">
       <button class="booking-modal-close" onclick="closeBookingModal()" aria-label="Close">&times;</button>
-      <iframe id="booking-iframe" src="" frameborder="0" allowfullscreen></iframe>
+      <div id="embed-30" class="modal-embed"></div>
+      <div id="embed-60" class="modal-embed"></div>
+      <div id="embed-75" class="modal-embed">
+        <div class="tidycal-embed" data-path="alane/75-minute-session"></div>
+      </div>
     </div>
   </div>
 
+  <script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
   <script src="main.js"></script>
   <!-- Web3Forms hCaptcha script -->
   <script src="https://web3forms.com/client/script.js" async defer></script>
   <script>
-    function openBookingModal(e) {
+    function openBookingModal(e, session) {
       e.preventDefault();
-      document.getElementById('booking-iframe').src = 'https://tidycal.com/alane/30-minute-meeting';
+      document.querySelectorAll('.modal-embed').forEach(el => el.style.display = 'none');
+      document.getElementById('embed-' + session).style.display = 'block';
       document.getElementById('booking-modal').classList.add('active');
       document.body.style.overflow = 'hidden';
     }
 
     function closeBookingModal() {
       document.getElementById('booking-modal').classList.remove('active');
-      document.getElementById('booking-iframe').src = '';
       document.body.style.overflow = '';
     }
 

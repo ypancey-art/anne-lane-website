@@ -957,11 +957,15 @@ nav {
 
 .booking-modal-close:hover { color: var(--green); }
 
-.booking-modal-inner iframe {
+.modal-embed {
+  display: none;
   width: 100%;
   height: 100%;
-  border: none;
-  display: block;
+}
+
+.modal-embed .tidycal-embed {
+  width: 100%;
+  height: 100%;
 }
 
 /* CONTACT FORM */
