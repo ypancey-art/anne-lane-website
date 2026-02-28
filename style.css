@@ -960,22 +960,10 @@ nav {
 
 .booking-modal-close:hover { color: var(--green); }
 
-.modal-embed {
-  display: none;
+#booking-iframe {
   flex: 1;
   min-height: 0;
-  overflow: hidden;
-}
-
-.modal-embed .tidycal-embed {
   width: 100%;
-  height: 100%;
-  overflow: hidden;
-}
-
-.modal-embed .tidycal-embed iframe {
-  width: 100% !important;
-  height: 100% !important;
   border: none;
   display: block;
 }

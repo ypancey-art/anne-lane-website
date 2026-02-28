@@ -196,33 +196,29 @@
   <div id="booking-modal" class="booking-modal" onclick="handleModalBackdropClick(event)">
     <div class="booking-modal-inner">
       <button class="booking-modal-close" onclick="closeBookingModal()" aria-label="Close">&times;</button>
-      <div id="embed-30" class="modal-embed">
-        <div class="tidycal-embed" data-path="alane/30-minute-meeting"></div>
-      </div>
-      <div id="embed-60" class="modal-embed">
-        <div class="tidycal-embed" data-path="alane/60-minute-meeting"></div>
-      </div>
-      <div id="embed-75" class="modal-embed">
-        <div class="tidycal-embed" data-path="alane/75-minute-session"></div>
-      </div>
+      <iframe id="booking-iframe" src="" frameborder="0"></iframe>
     </div>
   </div>
-
-  <script src="https://asset-tidycal.b-cdn.net/js/embed.js" async></script>
   <script src="main.js"></script>
   <!-- Web3Forms hCaptcha script -->
   <script src="https://web3forms.com/client/script.js" async defer></script>
   <script>
+    var tidycalUrls = {
+      '30': 'https://tidycal.com/alane/30-minute-meeting',
+      '60': 'https://tidycal.com/alane/60-minute-meeting',
+      '75': 'https://tidycal.com/alane/75-minute-session'
+    };
+
     function openBookingModal(e, session) {
       e.preventDefault();
-      document.querySelectorAll('.modal-embed').forEach(el => el.style.display = 'none');
-      document.getElementById('embed-' + session).style.display = 'block';
+      document.getElementById('booking-iframe').src = tidycalUrls[session];
       document.getElementById('booking-modal').classList.add('active');
       document.body.style.overflow = 'hidden';
     }
 
     function closeBookingModal() {
       document.getElementById('booking-modal').classList.remove('active');
+      document.getElementById('booking-iframe').src = '';
       document.body.style.overflow = '';
     }
 
