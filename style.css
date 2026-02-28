@@ -824,19 +824,19 @@ nav {
   line-height: 1.6 !important;
 }
 
-.tidycal-embed {
+.tidycal-container {
   background: var(--white);
   border: 1px solid var(--cream-dark);
   padding: 3rem;
 }
 
-.tidycal-embed h3 {
+.tidycal-container h3 {
   font-size: 1.5rem;
   color: var(--green);
   margin-bottom: 0.5rem;
 }
 
-.tidycal-embed > p {
+.tidycal-container > p {
   font-size: 0.85rem;
   color: var(--text-light);
   margin-bottom: 2rem;
