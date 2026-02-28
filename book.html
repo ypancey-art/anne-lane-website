@@ -74,7 +74,7 @@
           </div>
           <h4>Introduction Session</h4>
           <p>A no-commitment conversation to explore whether we're the right fit. We'll cover what you're experiencing and how I approach care.</p>
-          <a href="#" class="btn-outline session-btn">Book Free Session</a>
+          <a href="#" class="btn-outline session-btn" onclick="openBookingModal(event)">Book Free Session</a>
         </div>
 
         <div class="session-card">
@@ -196,10 +196,38 @@
     </div>
   </footer>
 
+  <div id="booking-modal" class="booking-modal" onclick="handleModalBackdropClick(event)">
+    <div class="booking-modal-inner">
+      <button class="booking-modal-close" onclick="closeBookingModal()" aria-label="Close">&times;</button>
+      <iframe id="booking-iframe" src="" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
   <script src="main.js"></script>
   <!-- Web3Forms hCaptcha script -->
   <script src="https://web3forms.com/client/script.js" async defer></script>
   <script>
+    function openBookingModal(e) {
+      e.preventDefault();
+      document.getElementById('booking-iframe').src = 'https://tidycal.com/alane/30-minute-meeting';
+      document.getElementById('booking-modal').classList.add('active');
+      document.body.style.overflow = 'hidden';
+    }
+
+    function closeBookingModal() {
+      document.getElementById('booking-modal').classList.remove('active');
+      document.getElementById('booking-iframe').src = '';
+      document.body.style.overflow = '';
+    }
+
+    function handleModalBackdropClick(e) {
+      if (e.target === document.getElementById('booking-modal')) closeBookingModal();
+    }
+
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape') closeBookingModal();
+    });
+
     // Set redirect URL dynamically based on current origin
     window.addEventListener('DOMContentLoaded', function() {
       // Set the redirect URL for web3forms
