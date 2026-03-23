@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conscious Preconception Bundle | Anne Lane Naturopath</title>
+  <meta name="description" content="12 expert guides to support your preconception journey — created by fertility specialist Anne Lane. Over 100 pages of naturopathic guidance. Instant digital download for $37." />
+  <meta name="author" content="Anne Lane" />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="../style.css" />
+  <style>
+    /* ── Preconception landing page styles ── */
+
+    .pc-hero {
+      background: linear-gradient(135deg, var(--cream) 55%, var(--gold-pale) 100%);
+      padding: 5rem 4rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      min-height: 90vh;
+    }
+
+    .pc-hero-text .eyebrow {
+      font-family: 'Jost', sans-serif;
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-weight: 400;
+      margin-bottom: 1.2rem;
+    }
+
+    .pc-hero-text h1 {
+      font-size: clamp(2.4rem, 4vw, 3.6rem);
+      line-height: 1.15;
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      font-weight: 400;
+    }
+
+    .pc-hero-text h1 em {
+      color: var(--green);
+      font-style: italic;
+    }
+
+    .pc-hero-text .lead {
+      font-size: 1.05rem;
+      line-height: 1.8;
+      color: var(--text-light);
+      margin-bottom: 2rem;
+      max-width: 480px;
+    }
+
+    .pc-price-tag {
+      display: inline-block;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--text-light);
+      margin-bottom: 1.5rem;
+    }
+
+    .pc-price-tag strong {
+      font-size: 2rem;
+      color: var(--green);
+      font-weight: 500;
+      margin-right: 0.3rem;
+    }
+
+    .btn-buy {
+      display: inline-block;
+      background: var(--green);
+      color: var(--white);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 500;
+      padding: 1rem 2.5rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s;
+      margin-bottom: 1rem;
+    }
+
+    .btn-buy:hover {
+      background: var(--green-light);
+      transform: translateY(-1px);
+    }
+
+    .pc-hero-meta {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      letter-spacing: 0.06em;
+    }
+
+    .pc-hero-meta span {
+      margin-right: 1.2rem;
+    }
+
+    .pc-hero-image img {
+      width: 100%;
+      border-radius: 4px;
+      box-shadow: 0 20px 60px rgba(58, 48, 40, 0.12);
+    }
+
+    /* ── Window section ── */
+    .pc-window {
+      background: var(--white);
+      padding: 5rem 4rem;
+      text-align: center;
+    }
+
+    .pc-window .section-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+
+    .pc-window h2 {
+      font-size: clamp(2rem, 3vw, 2.8rem);
+      color: var(--text);
+      max-width: 700px;
+      margin: 0 auto 2rem;
+      line-height: 1.25;
+    }
+
+    .pc-window p {
+      font-size: 1rem;
+      line-height: 1.9;
+      color: var(--text-light);
+      max-width: 640px;
+      margin: 0 auto 1.2rem;
+    }
+
+    .pc-window p strong {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .pc-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      max-width: 800px;
+      margin: 3rem auto 0;
+    }
+
+    .pc-stat {
+      text-align: center;
+      padding: 2rem 1.5rem;
+      background: var(--cream);
+      border-radius: 4px;
+      border-top: 2px solid var(--gold-light);
+    }
+
+    .pc-stat .number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 2.8rem;
+      color: var(--green);
+      line-height: 1;
+      margin-bottom: 0.5rem;
+    }
+
+    .pc-stat p {
+      font-size: 0.85rem;
+      color: var(--text-light);
+      margin: 0;
+      max-width: none;
+    }
+
+    /* ── Description ── */
+    .pc-description {
+      padding: 5rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+      background: var(--cream);
+    }
+
+    .pc-description img {
+      width: 100%;
+      border-radius: 4px;
+      box-shadow: 0 12px 40px rgba(58, 48, 40, 0.1);
+    }
+
+    .pc-description h2 {
+      font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+      color: var(--text);
+      margin-bottom: 1.5rem;
+      line-height: 1.2;
+    }
+
+    .pc-description p {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    /* ── What's included ── */
+    .pc-included {
+      background: var(--white);
+      padding: 5rem 4rem;
+    }
+
+    .pc-included-header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .pc-included-header .section-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+
+    .pc-included-header h2 {
+      font-size: clamp(1.8rem, 2.5vw, 2.6rem);
+      color: var(--text);
+    }
+
+    .pc-included-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 3rem;
+      max-width: 1000px;
+      margin: 0 auto;
+      align-items: start;
+    }
+
+    .pc-guides-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .pc-guides-list li {
+      display: flex;
+      align-items: flex-start;
+      gap: 1rem;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid var(--cream-dark);
+      font-size: 0.95rem;
+      color: var(--text);
+      line-height: 1.5;
+    }
+
+    .pc-guides-list li:last-child {
+      border-bottom: none;
+    }
+
+    .pc-guide-number {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.1rem;
+      color: var(--gold);
+      font-weight: 500;
+      min-width: 1.8rem;
+      padding-top: 0.05rem;
+    }
+
+    .pc-included-image img {
+      width: 100%;
+      border-radius: 4px;
+      box-shadow: 0 12px 40px rgba(58, 48, 40, 0.1);
+    }
+
+    /* ── 100 pages spread ── */
+    .pc-spread {
+      padding: 0;
+      overflow: hidden;
+    }
+
+    .pc-spread img {
+      width: 100%;
+      display: block;
+    }
+
+    /* ── Bonus ── */
+    .pc-bonus {
+      background: var(--cream);
+      padding: 5rem 4rem;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 5rem;
+      align-items: center;
+    }
+
+    .pc-bonus img {
+      width: 100%;
+      border-radius: 4px;
+      box-shadow: 0 12px 40px rgba(58, 48, 40, 0.1);
+    }
+
+    .pc-bonus-tag {
+      display: inline-block;
+      background: var(--gold-pale);
+      color: var(--gold);
+      font-size: 0.75rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      padding: 0.4rem 1rem;
+      border-radius: 2px;
+      margin-bottom: 1.2rem;
+    }
+
+    .pc-bonus h2 {
+      font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+      color: var(--text);
+      margin-bottom: 1.2rem;
+      line-height: 1.2;
+    }
+
+    .pc-bonus p {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    .pc-bonus-topics {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-top: 1rem;
+    }
+
+    .pc-bonus-topics span {
+      background: var(--green-pale);
+      color: var(--green);
+      font-size: 0.78rem;
+      padding: 0.3rem 0.8rem;
+      border-radius: 2px;
+      font-family: 'Jost', sans-serif;
+    }
+
+    /* ── About Anne ── */
+    .pc-about {
+      background: var(--white);
+      padding: 5rem 4rem;
+      text-align: center;
+    }
+
+    .pc-about .section-eyebrow {
+      font-size: 0.75rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--gold);
+      font-family: 'Jost', sans-serif;
+      font-weight: 400;
+      margin-bottom: 1rem;
+    }
+
+    .pc-about h2 {
+      font-size: clamp(1.8rem, 2.5vw, 2.4rem);
+      color: var(--text);
+      margin-bottom: 1.5rem;
+    }
+
+    .pc-about p {
+      font-size: 0.95rem;
+      line-height: 1.9;
+      color: var(--text-light);
+      max-width: 640px;
+      margin: 0 auto 1rem;
+    }
+
+    .pc-about a {
+      color: var(--green);
+      text-decoration: none;
+      border-bottom: 1px solid var(--green-pale);
+      transition: border-color 0.3s;
+    }
+
+    .pc-about a:hover {
+      border-color: var(--green);
+    }
+
+    /* ── Final CTA ── */
+    .pc-cta {
+      background: linear-gradient(135deg, var(--green) 0%, #3a5432 100%);
+      padding: 6rem 4rem;
+      text-align: center;
+      color: var(--white);
+    }
+
+    .pc-cta h2 {
+      font-size: clamp(2rem, 3vw, 3rem);
+      color: var(--white);
+      margin-bottom: 1rem;
+      line-height: 1.2;
+    }
+
+    .pc-cta p {
+      font-size: 1rem;
+      line-height: 1.8;
+      color: rgba(255,255,255,0.8);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+    }
+
+    .pc-cta-box {
+      display: inline-block;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 4px;
+      padding: 2.5rem 3.5rem;
+      margin-bottom: 2rem;
+    }
+
+    .pc-cta-box .what-you-get {
+      font-size: 0.8rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.7);
+      font-family: 'Jost', sans-serif;
+      margin-bottom: 0.5rem;
+    }
+
+    .pc-cta-box .cta-includes {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 1.2rem;
+      color: rgba(255,255,255,0.9);
+      margin-bottom: 1.5rem;
+    }
+
+    .pc-cta-box .cta-price {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 3.5rem;
+      color: var(--white);
+      line-height: 1;
+      margin-bottom: 1.5rem;
+    }
+
+    .pc-cta-box .cta-price span {
+      font-size: 1.5rem;
+      vertical-align: top;
+      padding-top: 0.5rem;
+      display: inline-block;
+    }
+
+    .btn-buy-white {
+      display: inline-block;
+      background: var(--white);
+      color: var(--green);
+      font-family: 'Jost', sans-serif;
+      font-size: 0.85rem;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      font-weight: 500;
+      padding: 1rem 2.8rem;
+      border-radius: 2px;
+      text-decoration: none;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .btn-buy-white:hover {
+      background: var(--cream);
+      transform: translateY(-1px);
+    }
+
+    .pc-cta-note {
+      font-size: 0.8rem;
+      color: rgba(255,255,255,0.6);
+      margin-top: 1rem;
+    }
+
+    /* ── Disclaimer ── */
+    .pc-disclaimer {
+      background: var(--cream-dark);
+      padding: 2.5rem 4rem;
+      text-align: center;
+    }
+
+    .pc-disclaimer p {
+      font-size: 0.8rem;
+      color: var(--text-light);
+      line-height: 1.7;
+      max-width: 700px;
+      margin: 0 auto 0.5rem;
+    }
+
+    /* ── Responsive ── */
+    @media (max-width: 900px) {
+      .pc-hero {
+        grid-template-columns: 1fr;
+        padding: 3rem 2rem 2.5rem;
+        min-height: auto;
+        gap: 2.5rem;
+      }
+
+      .pc-hero-image { order: -1; }
+
+      .pc-window,
+      .pc-about,
+      .pc-included,
+      .pc-cta,
+      .pc-disclaimer {
+        padding: 3.5rem 2rem;
+      }
+
+      .pc-description,
+      .pc-bonus {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+        padding: 3.5rem 2rem;
+      }
+
+      .pc-stats {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+      }
+
+      .pc-included-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .pc-cta-box {
+        padding: 2rem 1.5rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .pc-hero { padding: 2.5rem 1.5rem 2rem; }
+      .pc-window, .pc-about, .pc-included, .pc-cta, .pc-disclaimer { padding: 2.5rem 1.5rem; }
+      .pc-description, .pc-bonus { padding: 2.5rem 1.5rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <nav id="main-nav">
+    <a href="../index.html" class="nav-logo">Anne <span>Lane</span></a>
+    <button class="nav-hamburger" id="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="../index.html" onclick="closeMenu()">Home</a></li>
+      <li><a href="../about.html" onclick="closeMenu()">About</a></li>
+      <li><a href="../services.html" onclick="closeMenu()">Services</a></li>
+      <li><a href="../blog/index.html" onclick="closeMenu()">Resources</a></li>
+      <li><a href="../book.html" class="nav-cta" onclick="closeMenu()">Book a Session</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="pc-hero">
+    <div class="pc-hero-text">
+      <div class="eyebrow">Conscious Preconception Bundle</div>
+      <h1>Give Your Future Baby the <em>Best Possible Start</em></h1>
+      <p class="lead">The 3–6 months before conception are the most powerful window to shape your child's lifelong health. Most people don't know it exists — and fewer know how to use it.</p>
+      <div class="pc-price-tag"><strong>$37</strong> · Instant digital download</div>
+      <br>
+      <!-- Replace # with your Stripe payment link -->
+      <a href="#" class="btn-buy">Get the Bundle — $37</a>
+      <div class="pc-hero-meta">
+        <span>12 Expert Guides</span>
+        <span>100+ Pages</span>
+        <span>+ Bonus Resources</span>
+      </div>
+    </div>
+    <div class="pc-hero-image">
+      <img src="images/hero-devices.jpg" alt="Conscious Preconception Bundle — instant digital download on all devices" />
+    </div>
+  </section>
+
+  <!-- THE WINDOW -->
+  <section class="pc-window">
+    <div class="section-eyebrow">Why timing matters</div>
+    <h2>It takes three months to grow a healthy egg</h2>
+    <p>The quality of that egg — and the environment it develops in — is directly shaped by what you eat, how you sleep, how you manage stress, and what you're exposed to in the months before you conceive. This is not a small window. It's arguably the most important one.</p>
+    <p><strong>The Conscious Preconception Bundle was created to give you everything you need to use this time wisely.</strong> It goes beyond templates and checklists — it is solid naturopathic guidance from a fertility specialist who has spent 25 years working with couples trying to conceive.</p>
+    <div class="pc-stats">
+      <div class="pc-stat">
+        <div class="number">3</div>
+        <p>months for an egg to fully mature — your lifestyle today affects the egg released in 90 days</p>
+      </div>
+      <div class="pc-stat">
+        <div class="number">12</div>
+        <p>expert guides covering every dimension of preconception health — body, mind, and environment</p>
+      </div>
+      <div class="pc-stat">
+        <div class="number">100+</div>
+        <p>pages of evidence-informed naturopathic content — not filler, not fluff</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- DESCRIPTION -->
+  <section class="pc-description">
+    <div>
+      <img src="images/pdf-covers.jpg" alt="Conscious Preconception Bundle PDF guides" />
+    </div>
+    <div>
+      <h2>More than a checklist. A complete preconception system.</h2>
+      <p>The Conscious Preconception Bundle was built to empower you on your trying-to-conceive journey. It bridges the gap between what conventional medicine offers and the deep, root-cause work that naturopathic medicine is known for.</p>
+      <p>From detoxification and fertility nutrition to nervous system regulation, sleep, and daily habit tracking — each guide builds on the last to help you arrive at conception in the best possible health.</p>
+      <p>There is no other product like it. With over 100 pages of content, it is the most comprehensive self-guided preconception resource available — created by a practicing naturopath, not a content team.</p>
+    </div>
+  </section>
+
+  <!-- WHAT'S INCLUDED -->
+  <section class="pc-included">
+    <div class="pc-included-header">
+      <div class="section-eyebrow">What's included</div>
+      <h2>12 Guides + Bonus Resources</h2>
+    </div>
+    <div class="pc-included-grid">
+      <ul class="pc-guides-list">
+        <li><span class="pc-guide-number">01</span> Welcome Guide — how to use the bundle to get the most out of your preconception window</li>
+        <li><span class="pc-guide-number">02</span> Habit Tracking Guide — build and sustain the daily practices that matter most</li>
+        <li><span class="pc-guide-number">03</span> Preconception Checklist — a comprehensive checklist covering medical, physical, and lifestyle priorities</li>
+        <li><span class="pc-guide-number">04</span> Basal Body Temperature Guide — understand your cycle and identify your most fertile days</li>
+        <li><span class="pc-guide-number">05</span> Detoxification Guide — a 6-step protocol to safely reduce your toxic load before conception</li>
+        <li><span class="pc-guide-number">06</span> Prenatal &amp; Supplement Guide — what to take, what to avoid, and why</li>
+        <li><span class="pc-guide-number">07</span> Nervous System Practices — evidence-based techniques to reduce stress and regulate your nervous system</li>
+        <li><span class="pc-guide-number">08</span> Fertility Mudras Guide — ancient hand positions to support reproductive energy and calm the mind</li>
+        <li><span class="pc-guide-number">09</span> Yoga Nidra Guide — guided deep relaxation practices for fertility and sleep</li>
+        <li><span class="pc-guide-number">10</span> Fertility Foods Guide — what to eat (and what to avoid) to nourish your reproductive health</li>
+        <li><span class="pc-guide-number">11</span> Fertility Affirmations — positive language practices to support a healthy conception mindset</li>
+        <li><span class="pc-guide-number">12</span> Sweet Slumber Guide — optimise your sleep to support hormone balance and cellular repair</li>
+      </ul>
+      <div class="pc-included-image">
+        <img src="images/whats-included.jpg" alt="What's included in the Conscious Preconception Bundle" />
+      </div>
+    </div>
+  </section>
+
+  <!-- 100 PAGES SPREAD -->
+  <section class="pc-spread">
+    <img src="images/pages-spread.jpg" alt="More than 100 pages of preconception content" />
+  </section>
+
+  <!-- BONUS -->
+  <section class="pc-bonus">
+    <div>
+      <img src="images/bonus-resources.jpg" alt="Free Bonus — Additional Resources guide" />
+    </div>
+    <div>
+      <div class="pc-bonus-tag">Included free</div>
+      <h2>Bonus: Additional Resources Guide</h2>
+      <p>A curated 4-page reference guide with 20 hand-picked resources to help you go deeper on every aspect of your preconception journey.</p>
+      <p>Organised by category so you can find exactly what you need, when you need it.</p>
+      <div class="pc-bonus-topics">
+        <span>Hormones &amp; Fertility</span>
+        <span>Nutrition</span>
+        <span>Habits</span>
+        <span>Cosmetics</span>
+        <span>Personal Care</span>
+        <span>Healing</span>
+        <span>Nerve Exercises</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT ANNE -->
+  <section class="pc-about">
+    <div class="section-eyebrow">Created by</div>
+    <h2>Anne Lane, European-Trained Naturopath</h2>
+    <p>Anne Lane is a fertility specialist and European-trained Naturopath with over 25 years of clinical experience. She integrates Traditional Chinese Medicine, Functional Medicine, and Energy Medicine to support women and couples on their path to conception.</p>
+    <p>The Conscious Preconception Bundle distils the foundational guidance Anne shares with her private clients — now available to anyone preparing for pregnancy. Anne is also available for <a href="../book.html">1-on-1 consultations</a> through annelane.co.</p>
+  </section>
+
+  <!-- FINAL CTA -->
+  <section class="pc-cta">
+    <h2>Begin your preconception journey today</h2>
+    <p>Everything you need — in one place, available immediately. Start using it today, no matter where you are in your cycle.</p>
+    <div class="pc-cta-box">
+      <div class="what-you-get">You get</div>
+      <div class="cta-includes">12 Guides + Bonus Resources · 100+ pages · Instant download</div>
+      <div class="cta-price"><span>$</span>37</div>
+      <!-- Replace # with your Stripe payment link -->
+      <a href="#" class="btn-buy-white">Get Instant Access</a>
+    </div>
+    <div class="pc-cta-note">Secure checkout via Stripe · Digital download only · All sales final</div>
+  </section>
+
+  <!-- DISCLAIMER -->
+  <section class="pc-disclaimer">
+    <p>This is a digital download. No physical product will be shipped and there are no returns for digital products. With any questions, feel free to <a href="mailto:hello@annelane.co" style="color:var(--green);">get in touch</a>.</p>
+    <p>The information in this bundle is for educational purposes only. Always seek the advice of a physician or other qualified health provider with any questions you may have regarding a medical condition. Never engage in a detoxification program if you are already pregnant or think you might be pregnant.</p>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <h3>Anne Lane</h3>
+        <div class="tagline">European-Trained Naturopath</div>
+        <p>Integrating Traditional Chinese Medicine, Functional Medicine, and Energy Medicine to help you feel healthy and vital again.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="../index.html">Home</a></li>
+          <li><a href="../about.html">About</a></li>
+          <li><a href="../services.html">Services</a></li>
+          <li><a href="../blog/index.html">Lane Musings</a></li>
+          <li><a href="../book.html">Book a Session</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Services</h4>
+        <ul>
+          <li>Perimenopause</li>
+          <li>Fertility Coaching</li>
+          <li>Nutrition &amp; Lifestyle</li>
+          <li>1:1 Consultations</li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="mailto:hello@annelane.co">hello@annelane.co</a></li>
+          <li><a href="../blog/index.html">Lane Musings Newsletter</a></li>
+          <li><a href="../book.html">Book a Session</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Anne Lane. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script src="../main.js"></script>
+</body>
+</html>
