@@ -110,11 +110,11 @@
       <div class="sidebar-widget">
         <h4>Browse by Topic</h4>
         <ul>
-          <li><a href="#">🌿 Perimenopause</a></li>
-          <li><a href="#">🌸 Fertility</a></li>
-          <li><a href="#">🍃 Nutrition & Lifestyle</a></li>
-          <li><a href="#">✨ Energy & Vitality</a></li>
-          <li><a href="#">💛 Hormonal Health</a></li>
+          <li><a href="#" data-topic="Perimenopause">🌿 Perimenopause</a></li>
+          <li><a href="#" data-topic="Fertility">🌸 Fertility</a></li>
+          <li><a href="#" data-topic="Nutrition & Lifestyle">🍃 Nutrition & Lifestyle</a></li>
+          <li><a href="#" data-topic="Energy & Vitality">✨ Energy & Vitality</a></li>
+          <li><a href="#" data-topic="Hormonal Health">💛 Hormonal Health</a></li>
         </ul>
       </div>
       <div class="sidebar-widget">
@@ -174,7 +174,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Anne Lane. All rights reserved.</p>
+      <p>© 2026 Anne Lane. All rights reserved.</p>
     </div>
   </footer>
 
@@ -263,6 +263,15 @@
         document.querySelectorAll('.post-card').forEach(card => {
           card.style.display = (selected === 'all' || card.dataset.category === selected) ? '' : 'none';
         });
+      });
+    });
+
+    document.querySelectorAll('.sidebar-widget a[data-topic]').forEach(link => {
+      link.addEventListener('click', e => {
+        e.preventDefault();
+        const btn = document.querySelector('.cat-btn[data-category="' + link.dataset.topic + '"]');
+        if (btn) btn.click();
+        document.querySelector('.blog-categories').scrollIntoView({ behavior: 'smooth' });
       });
     });
   </script>
