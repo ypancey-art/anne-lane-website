@@ -521,6 +521,17 @@ footer {
   display: block;
 }
 
+.post-content .photo-credit {
+  font-size: 0.75rem;
+  color: var(--text-light);
+  margin: -1.2rem 0 2rem;
+}
+
+.post-content .photo-credit a {
+  color: inherit;
+  text-decoration: underline;
+}
+
 @media (max-width: 480px) {
   .post-content .post-photos { gap: 0.6rem; }
 }

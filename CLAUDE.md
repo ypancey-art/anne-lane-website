@@ -4,35 +4,29 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-A static HTML/CSS website for Anne Lane, a European-trained Naturopath. No build system, no dependencies, no package manager — pure HTML, CSS, and vanilla JavaScript. Hosted on GitHub Pages at `https://ypancey-art.github.io/anne-lane-website/`.
-
-The `.nojekyll` file at the root disables Jekyll processing on GitHub Pages.
+A static website for Anne Lane, a European-trained Naturopath, live at `https://annelane.co`. No build system, no dependencies, no package manager — plain HTML, CSS, and vanilla JavaScript. Merging to `main` publishes the site (`CNAME` and `wrangler.jsonc` hold the hosting config; `.nojekyll` disables Jekyll processing).
 
 ## Architecture
 
-### Two-part structure
+### Pages
 
-**Main SPA (`index.html`):**
-A single-page application where Home, About, Services, and Book are all rendered as `<div class="page">` sections inside one HTML file. Navigation between these sections uses the `showPage(pageName)` JavaScript function, which toggles the `.active` class. All CSS is inline in a `<style>` block within `index.html`.
+Every page is its own HTML file with real navigation (there is no single-page app and no `showPage()`):
 
-**Blog section (`blog/`):**
-Separate HTML files that use actual page navigation (not SPA). `blog/blog.css` is a shared stylesheet for all blog pages. New blog posts are standalone `.html` files in the `blog/` folder.
+- `index.html` (home), `about.html`, `services.html`, `book.html`
+- `preconception/index.html` — a landing page for the preconception programme (images in `preconception/images/`)
+- `blog/` — "Lane Musings": `blog/index.html` (post grid, category filter) plus one standalone HTML file per article
 
-### Navigation pattern
-
-- The main nav links for Home, About, Services, and Book call `showPage()` with `href="#"`
-- The Resources/Blog link uses a real `href="blog/index.html"` — this is intentional
-- Blog pages link back to `../index.html` (not using `showPage`)
+The top-level pages share `style.css` and `main.js` (`toggleMenu()` / `closeMenu()` for the mobile nav). `preconception/index.html` loads them from `../`. The blog uses its own stylesheet, `blog/blog.css`.
 
 ### Design tokens
 
-CSS custom properties are defined in two places (keep them in sync):
-- `index.html` inline `<style>` `:root` block
-- `blog/blog.css` `:root` block
+CSS custom properties are defined in two places — keep them in sync:
+- `style.css` `:root`
+- `blog/blog.css` `:root`
 
 Key variables: `--cream`, `--cream-dark`, `--green`, `--green-light`, `--green-pale`, `--gold`, `--gold-light`, `--gold-pale`, `--brown`, `--text`, `--text-light`, `--white`
 
-Typography: `Cormorant Garamond` (serif, used for all headings) and `Jost` (sans-serif, used for body text and UI elements), loaded from Google Fonts.
+Typography: `Cormorant Garamond` (serif, used for headings) and `Jost` (sans-serif, used for body text and UI), loaded from Google Fonts.
 
 ### Responsive breakpoints
 
@@ -41,14 +35,24 @@ Typography: `Cormorant Garamond` (serif, used for all headings) and `Jost` (sans
 
 ## Adding a new blog post
 
-1. Create `blog/your-post-slug.html` following the structure of existing posts (e.g. `blog/perimenopause-signs.html`)
-2. Link to the new post from `blog/index.html` by adding a new `<article class="post-card">` block
-3. Blog posts use `blog.css` and link back to `../index.html`
+1. Copy the structure of a recent post (e.g. `blog/fall-and-womens-health.html`) to `blog/your-post-slug.html`.
+2. Update the `<title>`, description, Open Graph tags, `canonical`/`og:url`/`og:image` (absolute `https://annelane.co/...` URLs), and the JSON-LD block (headline, dates, url).
+3. Add a new `<article class="post-card" data-category="...">` block at the top of the grid in `blog/index.html` (the category must match one of the `.cat-btn` categories).
+4. Add the URL to `sitemap.xml`.
+5. Use real, working `href`s: posts link back to `../index.html`, `../services.html`, etc.
 
-## Booking integration
+The sidebar newsletter form on each post is the real Formspree + Cloudflare Turnstile form, driven by the shared `blog/newsletter.js`. Copy it from an existing post rather than rebuilding it.
 
-The Book page contains a placeholder (`<div class="bookafy-placeholder">`) where a Bookafy scheduling widget embed code should go. The placeholder shows the expected embed snippet format.
+## Images and credits
 
-## Contact form
+- Photos of Anne live in `media/`. Keep them under roughly 1800px on the longest side and a few hundred KB each (they were resized in Nov 2026).
+- Stock photos come from Pexels. Credit the photographer next to the images (`<p class="photo-credit">Photos: Name / Pexels</p>`, linked to the Pexels photo page). Do not publish photos from other sites without a licence.
 
-The contact form in `index.html` uses `handleSubmit(event)` which only simulates submission (shows a success message, resets the form). It does not send data anywhere — a real form backend would need to be integrated.
+## Forms
+
+- Booking/contact form (`book.html`) and the newsletter forms post to Formspree (`https://formspree.io/f/mvzbbwqa`) with Cloudflare Turnstile verification. The Web3Forms code in `book.html` is commented out and unused.
+
+## SEO files
+
+- `sitemap.xml` and `robots.txt` live at the repo root. Add new pages to the sitemap.
+- `llms.txt` describes the site for AI tools; keep it consistent with the site content and use `annelane.co` URLs.

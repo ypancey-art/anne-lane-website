@@ -10,6 +10,10 @@
   <meta property="og:description" content="Perimenopause is more than hot flashes. Learn the surprising symptoms and how to address them naturally." />
   <meta property="og:type" content="article" />
   <meta name="author" content="Anne Lane" />
+  <link rel="canonical" href="https://annelane.co/blog/perimenopause-signs.html" />
+  <meta property="og:url" content="https://annelane.co/blog/perimenopause-signs.html" />
+  <meta property="og:image" content="https://annelane.co/media/anne_post1.jpg" />
+  <meta name="twitter:card" content="summary_large_image" />
   <link rel="stylesheet" href="blog.css" />
   <!-- Schema: Article -->
   <script type="application/ld+json">
@@ -20,9 +24,9 @@
     "description": "Hot flashes get all the attention — but perimenopause shows up in surprising ways. European-trained naturopath Anne Lane explains the lesser-known symptoms.",
     "author": { "@type": "Person", "name": "Anne Lane" },
     "datePublished": "2025-02-10",
-    "publisher": { "@type": "Person", "name": "Anne Lane", "url": "https://endearing-alpaca-96307a.netlify.app/" },
+    "publisher": { "@type": "Person", "name": "Anne Lane", "url": "https://annelane.co/" },
     "about": { "@type": "MedicalCondition", "name": "Perimenopause" },
-    "url": "https://endearing-alpaca-96307a.netlify.app/blog/perimenopause-signs.html"
+    "url": "https://annelane.co/blog/perimenopause-signs.html"
   }
   </script>
 </head>
@@ -133,10 +137,14 @@
       <div class="sidebar-widget">
         <h4>Join Lane Musings</h4>
         <p style="font-size:0.85rem; color:var(--text-light); line-height:1.7; margin-bottom:1rem;">Get Anne's insights delivered to your inbox.</p>
-        <div class="newsletter-form">
-          <input type="email" placeholder="Your email" />
-          <a href="#" class="btn-primary" style="text-align:center; display:block;">Subscribe</a>
-        </div>
+        <form class="newsletter-form" id="newsletter-form" action="https://formspree.io/f/mvzbbwqa" method="POST">
+          <input type="hidden" name="subject" value="NEWSLETTER" />
+          <input type="text" name="name" placeholder="Your name" required />
+          <input type="email" name="email" placeholder="Your email" required />
+          <div id="newsletter-turnstile"></div>
+          <div class="newsletter-success" id="newsletter-success" style="display:none; font-size:0.85rem; color:var(--green); padding:0.5rem 0;">✓ You're subscribed — welcome!</div>
+          <button type="submit" class="btn-primary" style="text-align:center;">Subscribe</button>
+        </form>
       </div>
     </aside>
   </div>
@@ -182,10 +190,12 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p>© 2025 Anne Lane. All rights reserved.</p>
+      <p>© 2026 Anne Lane. All rights reserved.</p>
     </div>
   </footer>
 
+    <script src="newsletter.js"></script>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=onTurnstileLoad&render=explicit" async defer></script>
   <script>
     function toggleMenu() {
       document.getElementById('hamburger').classList.toggle('open');
