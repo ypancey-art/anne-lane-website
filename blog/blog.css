@@ -507,6 +507,24 @@ footer {
   margin-bottom: 0.4rem;
 }
 
+.post-content .post-photos {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin: 2rem 0;
+}
+
+.post-content .post-photos img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  display: block;
+}
+
+@media (max-width: 480px) {
+  .post-content .post-photos { gap: 0.6rem; }
+}
+
 .post-content blockquote {
   border-left: 3px solid var(--gold);
   padding: 1rem 1.5rem;
